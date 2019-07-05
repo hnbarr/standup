@@ -1,68 +1,36 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+standup
 
-## Available Scripts
+in this app, I'm aiming to create a crud application using material-ui to be the host of my progress in my development post-ACA.
 
-In the project directory, you can run:
+I will be able to add, remove, update and read: notes and daily tasks. 
 
-### `npm start`
+Daily Tasks/Todos (todos);
+    ~have submission boxes to create titles of new task (New Task)
+    ~required fields = todo & date-preset for Date.now
+    ~once posted, they get added ot a list, until completed by checking box they will remain on todos.
+    ~have a archive page to see all completed tasks for records.
+    ~have ability to bumb tasks up or down depending on priority
+    ~CRUD
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Notes; 
+    ~have submission boxes to create notes on troubles, or solutions I stumble upon.
+    ~required fields = description, title, focus & date-preset for Date.now
+    ~have search input and filter dropdown to filter/search through notes
+    ~CRUD
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+PAGES--
+Home Page: (3 sections)
+    ~Notes
+    ~New Task
+    ~Task List
+Archived: (2 tabs)
+    ~Notes
+    ~Tasks
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Build Using;
+    ~Express (routes & controllers)
+    ~Mongo  (model & schema)
+    ~Redux (actions, reducers, state, store & containers)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
