@@ -6,14 +6,22 @@ class Note extends Component {
     state = {
         title: '',
         description: '',
+        topic: ''
         // date: Date.now()
     }
 
     render(){
         return(
             <div id='noteSection'>
-                <p>i'm the note section</p>
-                <Button variant='outlined' color='primary'>Add Note</Button>
+                <React.Fragment>
+                    <p>filter and add notes here</p>
+                    <Button variant='outlined' color='primary'>Add Note</Button>
+                </React.Fragment>
+                <hr />
+                <React.Fragment>
+                    <p>list notes here</p>
+                </React.Fragment>
+                
             </div>
         )
     }

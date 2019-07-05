@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 const Notes = new Schema ({
     title: String,
     description: String,
+    topic: String,
     date: Date
 })
 
