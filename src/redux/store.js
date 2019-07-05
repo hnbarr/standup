@@ -1,12 +1,5 @@
-export default {
-    notes: [
-        {
-            title: 'test note'
-        }
-    ],
-    tasks: [
-        {
-            task: 'test task'
-        }
-    ]
-}
+import { createStore } from 'redux'
+import reducers from './reducers'
+import state from './state'
+
+export default createStore(reducers, state)

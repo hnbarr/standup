@@ -1,15 +1,13 @@
 import { combineReducers } from 'redux'
 
 const notes = ( state = [], action ) => {
-    let newState = [ ...state]
     switch(action.type){
         case 'LIST_NOTES':
             return action.value
         case 'SHOW_NOTE':
             return action.value
         case 'CREATE_NOTE':
-            newState.push(action.value)
-            return newState
+            return [...state, action.value]
         case 'UPDATE_NOTE':
             return //need to figure this one out a little more.
         case 'DELETE_NOTE':
@@ -20,15 +18,13 @@ const notes = ( state = [], action ) => {
 }
 
 const tasks = ( state = [], action ) => {
-    let newState = [ ...state]
     switch(action.type){
         case 'LIST_TASKS':
             return action.value
         case 'SHOW_TASK':
             return action.value
         case 'CREATE_TASK':
-            newState.push(action.value)
-            return newState
+            return [...state, action.value]
         case 'UPDATE_TASK':
             return //need to figure this one out a little more.
         case 'DELETE_TASK':
