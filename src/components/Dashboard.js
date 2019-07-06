@@ -4,19 +4,19 @@ import Task from './Task'
 import Note from './Note'
 import { Paper } from '@material-ui/core'
 
-export default class Home extends Component {
+export default class Dashboard extends Component {
     componentDidMount(){
         console.log('home component loaded')
     }
     render(){
         return(
-            <Paper className='homePage'>
-            <h4>i'm the home page</h4>
+            <div className='dashboard'>
+            <h4>i'm the dashboard</h4>
                 <div className='layout'>
                     <Task />
                     <Note />
                 </div>
-            </Paper>
+            </div>
         )
     }
 }

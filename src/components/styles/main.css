@@ -3,6 +3,10 @@
     flex-direction: row;
   }
   
+  .dashboard {
+    height: 100%;
+  }
+
   #taskSection {
     width: 30%;
     margin: 0 auto;

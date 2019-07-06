@@ -25,10 +25,10 @@ export default class Login extends Component {
                     
                         <form id='signup'>
                             <Typography variant='h5'color='primary'>No account? Sign up now! </Typography>
-                            <Input placeholder='email'></Input>
-                            <Input placeholder='first name'></Input>
-                            <Input placeholder='last name'></Input>
-                            <Input placeholder='password'></Input>
+                            <Input placeholder='email' type="email"></Input>
+                            <Input placeholder='first name' type="name"></Input>
+                            <Input placeholder='last name' type="name"></Input>
+                            <Input placeholder='password'type="password"></Input>
                             <Button variant='outlined' color='primary'>Sign Up!</Button>
                         </form>
                 </Paper>

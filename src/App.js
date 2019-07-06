@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from './components/Login'
-// import Home from './components/Home'
+// import Dashboard from './components/Dashboard'
 
 export default class App extends Component{
   render(){
