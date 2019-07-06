@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core'
 import './styles/main.css'
 
 
-class Task extends Component {
+export default class Task extends Component {
     state = {
         task: '',
         // date: Date.now()
@@ -18,5 +18,3 @@ class Task extends Component {
         )
     }
 }
-
-export default Task

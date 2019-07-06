@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import Home from './components/Home'
+import Login from './components/Login'
+// import Home from './components/Home'
 
-class App extends Component{
+export default class App extends Component{
   render(){
       return (
         <div className="App">
-            <Home />
+            <Login /> {/*if login true render Home, if not render this page*/}
         </div>
       );
   }
 }
-
-export default App;
