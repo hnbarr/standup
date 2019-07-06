@@ -3,11 +3,13 @@ body {
 }
 .component {
     padding: 15px;
+    border: 1px dashed grey;
+    /* margin: 5px; */
 }
 
 #nav {
     grid-area: nav;
-    background-image: url('./images/seigaiha.png');  
+    /* background-image: url('./images/memphis-mini-dark.png');   */
 }
 
 #progress {
@@ -39,3 +41,30 @@ body {
         "nav blockers blockers progress";
     /* background-image: url('./images/seigaiha.png'); */
 }
+
+/* media queries */
+
+@media only screen and (max-width: 700px) {
+    .dashboard {
+      /* background-color: lightblue; */
+      grid-template-columns: 2fr 3fr;
+      grid-template-areas:
+        "nav nav"
+        "tasks tasks"
+        "stats progress"
+        "blockers blockers";
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    .dashboard {
+      /* background-color: lightblue; */
+      grid-template-columns: 2fr;
+      grid-template-areas:
+        "nav"
+        "progress"
+        "tasks"
+        "stats"
+        "blockers";
+    }
+  }

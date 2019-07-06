@@ -1,57 +1,17 @@
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.loginPage {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: space-around;
-  }
-
-  #loginLeft {
-    width: 50%;
+#detail {
+    grid-area: detail;
+    background-image: url('./images/paint.jpg');
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('./images/paint.jpg');
-    background-size: cover;
-  }
+}
 
-  #loginRight {
-    width: 50%;
-  }
-
-  #login {
-    height: 30%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    flex-direction: column;
-  }
-
-  #login form {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 70%;
-    margin: 0 auto;
-  }
-
-  #signup {
-    display: flex;
-    margin: 0 auto;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-content: center;
-    height: 60%;
-    width: 70%;
-    padding: 10px;
-    border-top: 1px solid rgb(230, 196, 0);
-  }
-
-  #leftBox {
+#leftBox {
     width: 375px;
     height: 250px;
     display: flex;
@@ -77,28 +37,116 @@
     color:rgb(189, 158, 0);
   }
 
+#signup {
+    height: 45vh;
+    grid-area: signup;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: column;
+    padding-top: 30px;
+    width: 70%;
+    border-top: 1px solid rgb(230, 196, 0);
+}
 
-  /* body {
-    margin: 10px;
+#loginSignup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin:20px;
+    padding:10px;
   }
 
-  #loginPage {
+#loginRight {
+    grid-area: login;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+        "login"
+        "signup";
+}
+
+#loginForm {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+
+#buttonSection {
+    width: auto;
+    margin-left: 10px;
+}
+#buttonSection Button {
+    padding: 15px;
+}
+.loginPage {
+    height: 100vh;
     display: grid;
     grid-template-rows: 2fr 2fr;
     grid-template-areas:
-      "detail, login"
-      "detail, signup"
-      "detail, signup";
+        "detail login"
+        "detail login";
+}
+
+/* media queries */
+
+@media only screen and (max-width: 900px) {
+    #detail {
+        padding: 20px;
+    }
+
+    #loginRight {
+        height: 50vh;
+    }
+
+    Button {
+        padding: 15px;
+    }
+
+    #loginSignup {
+        display: block;
+        margin: 0 auto;
+        height: auto;
+    }
+
+    #signup {
+        justify-content: space-evenly;
+        padding-top: 0px;
+    }
+
+    #loginForm {
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .loginPage {
+        height: 100vh;
+      grid-template-rows: 1fr 2fr;
+      grid-template-areas:
+        "detail"
+        "login";
+    }
   }
 
-  #loginLeft {
-    grid-area: detail;
-  }
+  @media only screen and (max-width: 500px) {
+      #loginForm {
+          display: block;
+      }
 
-  #login {
-    grid-area: login;
-  }
+      #buttonSection Button {
+          margin: 5px;
+          padding: 5px;
+          margin-left: 0px;
+      }
 
-  #signup {
-    grid-area: signup;
-  } */
+      #sigbup {
+          padding-top: 0px;
+      }
+  }
