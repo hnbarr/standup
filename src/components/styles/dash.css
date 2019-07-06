@@ -1,10 +1,42 @@
-.layout {
-    display: flex;
-    flex-direction: row;
-  }
+body {
+    /* border: 1px solid red; */
+}
+.component {
+    padding: 10px;
+}
 
-.dashboard {
-    background-image: url('./images/seigaiha.png');
+#nav {
+    grid-area: nav;
+    background-image: url('./images/plain.jpg')    
+}
+
+#progress {
+    grid-area: progress;
+}
+
+#stats {
+    grid-area: stats;
+}
+
+#tasks {
+    grid-area: tasks;
+}
+
+#blockers {
+    grid-area: blockers;
+}
+
+
+.dashboard  {
     height: 100vh;
-    /* display: flex; */
-  }
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-rows: 1fr 2fr 2fr 2fr;
+    grid-template-areas:
+        "nav stats tasks tasks"
+        "nav stats tasks tasks"
+        "nav blockers blockers progress"
+        "nav blockers blockers progress";
+    background-image: url('./images/seigaiha.png');
+}

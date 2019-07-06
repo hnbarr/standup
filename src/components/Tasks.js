@@ -3,18 +3,18 @@ import PropTypes from 'prop-types'
 import { Paper, Typography } from '@material-ui/core'
 // import './styles/dash.css'
 
-const Progress = props => {
+const Tasks = props => {
     return (
-        <div className='component' id='progress'>
+        <div className='component' id='tasks'>
             <Paper>
-                <Typography variant='h5'>im a progress circle</Typography>
+                <Typography variant='h5'>I'm the task section</Typography>
             </Paper>
         </div>
     )
 }
 
-Progress.propTypes = {
+Tasks.propTypes = {
 
 }
 
-export default Progress
+export default Tasks
