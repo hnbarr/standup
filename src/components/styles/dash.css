@@ -2,12 +2,12 @@ body {
     /* border: 1px solid red; */
 }
 .component {
-    padding: 10px;
+    padding: 15px;
 }
 
 #nav {
     grid-area: nav;
-    background-image: url('./images/plain.jpg')    
+    background-image: url('./images/seigaiha.png');  
 }
 
 #progress {
@@ -26,17 +26,16 @@ body {
     grid-area: blockers;
 }
 
-
 .dashboard  {
     height: 100vh;
-    margin: 0 auto;
     display: grid;
+    margin: 0 auto;
     grid-gap: 10px;
-    grid-template-rows: 1fr 2fr 2fr 2fr;
+    grid-template-columns: 1fr 2fr 2fr 2fr;
     grid-template-areas:
         "nav stats tasks tasks"
         "nav stats tasks tasks"
         "nav blockers blockers progress"
         "nav blockers blockers progress";
-    background-image: url('./images/seigaiha.png');
+    /* background-image: url('./images/seigaiha.png'); */
 }

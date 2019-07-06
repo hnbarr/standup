@@ -1,6 +1,5 @@
 import React from 'react'
 import { Paper, Typography } from '@material-ui/core'
-// import './styles/dash.css'
 import PropTypes from 'prop-types'
 
 const Nav = props => {

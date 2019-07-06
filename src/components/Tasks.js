@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Paper, Typography } from '@material-ui/core'
-// import './styles/dash.css'
 
 const Tasks = props => {
     return (
