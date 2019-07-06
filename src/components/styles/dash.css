@@ -1,0 +1,10 @@
+.layout {
+    display: flex;
+    flex-direction: row;
+  }
+
+.dashboard {
+    background-image: url('./images/seigaiha.png');
+    height: 100vh;
+    /* display: flex; */
+  }

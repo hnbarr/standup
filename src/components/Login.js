@@ -8,14 +8,15 @@ export default class Login extends Component {
             <div className='loginPage'>
                 <Paper className='loginPane' id='loginLeft'>
                     <div id='leftBox'>
+                        <Typography variant='h3' id='brand'>standup</Typography>
                         <Typography variant='h6'> <i className="fas fa-tasks"></i> Manage your daily tasks. </Typography>
-                        <Typography variant='h6'> <i className="fas fa-check-circle"></i> Log development progress. </Typography>
-                        <Typography variant='h6'> <i className="far fa-comment"></i> Take notes on projects. </Typography>
+                        <Typography variant='h6'> <i className="fas fa-folder-open"></i> Log development progress. </Typography>
+                        <Typography variant='h6'> <i className="fas fa-paperclip"></i> Take notes on projects. </Typography>
                     </div>
                 </Paper>
                 <Paper className='loginPane' id='loginRight'>
                     <div id='login'>
-                        <Typography variant='h5'color='primary'> Returning User? Sign in!</Typography>
+                        <Typography variant='h5'color='primary'> Welcome back! Sign in!</Typography>
                         <form>
                             <TextField id="outlined-email-input" label="Email" type="email" name="email" autoComplete="email" variant="outlined"/>
                             <TextField id="outlined-password-input" label="Password" type="password" autoComplete="current-password" variant="outlined"/>

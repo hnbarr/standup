@@ -1,4 +1,7 @@
-/* login page  */
+* {
+	box-sizing: border-box;
+}
+
 .loginPage {
     width: 100vw;
     height: 100vh;
@@ -11,7 +14,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('./images/dark-paths.png')
+    background-image: url('./images/paint.jpg');
+    background-size: cover;
   }
 
   #loginRight {
@@ -44,25 +48,59 @@
     height: 60%;
     width: 70%;
     padding: 10px;
-    border-top: 1px solid rgb(50, 65, 147);
+    border-top: 1px solid rgb(230, 196, 0);
   }
 
   #leftBox {
-    width: 400px;
-    height: 300px;
+    width: 375px;
+    height: 250px;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
     justify-content: space-evenly;
     flex-direction: column;
     align-content: center;
-    color: white;
-    /* background-color: white;
-    border-radius: 12px; */
+    color: navy;
+    background-color: #F7FCFF;
+    border-radius: 12px;
+    box-shadow:  0 0 8px rgb(188, 188, 188);
+    /* box-shadow:  0 8px 10px -6px rgb(188, 188, 188); */
+
+    /* border: 1px solid rgb(167, 127, 5); */
   }
 
   #leftBox i {
-    /* color: #3F51B5; */
+    color: rgb(189, 158, 0);
     float: left;
     margin: 10px;
   }
+
+  #brand {
+    color:rgb(189, 158, 0);
+  }
+
+
+  /* body {
+    margin: 10px;
+  }
+
+  #loginPage {
+    display: grid;
+    grid-template-rows: 2fr 2fr;
+    grid-template-areas:
+      "detail, login"
+      "detail, signup"
+      "detail, signup";
+  }
+
+  #loginLeft {
+    grid-area: detail;
+  }
+
+  #login {
+    grid-area: login;
+  }
+
+  #signup {
+    grid-area: signup;
+  } */

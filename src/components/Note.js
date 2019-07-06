@@ -1,26 +1,19 @@
 import React, { Component } from 'react'
-import { Button } from '@material-ui/core'
-import './styles/main.css'
+import { Button, Paper} from '@material-ui/core'
+import './styles/note.css'
 
 export default class Note extends Component {
-    state = {
-        title: '',
-        description: '',
-        topic: ''
-        // date: Date.now()
-    }
-
     render(){
         return(
             <div id='noteSection'>
-                <div>
+                <Paper id='noteTop'>
                     <p>filter and add notes here</p>
                     <Button variant='outlined' color='primary'>Add Note</Button>
-                </div>
+                </Paper>
                 <hr />
-                <div>
+                <Paper id='noteBottom'>
                     <p>list notes here</p>
-                </div>
+                </Paper>
                 
             </div>
         )
