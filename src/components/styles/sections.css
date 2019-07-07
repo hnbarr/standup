@@ -3,35 +3,38 @@
     justify-content: space-between;
     align-items: center;
     padding: 8px;
+    box-shadow:  0 0 6px rgb(137, 137, 137);
 }
 
 .addBtn {
-    width: 40px;
-    height: 40px;
-    box-shadow:  0 0 6px rgb(137, 137, 137);
-    background-color: #DCEDC8;
+    display: flex;
+    align-content: center;
+    width: 30px;
+    height: 30px;
+    box-shadow:  0 0 6px #3C649D;
+    /* rgb(137, 137, 137); */
+    background-color: transparent;
     padding: 10px;
     border-radius: 50%;
     outline: none;
+    border: none;
 }
 
 .addBtn:hover {
     cursor: pointer;
 }
 
-#top{
-    grid-area: top;
-}
-#bottom{
-    grid-area: bottom;
+.addBtn:active {
+    background-color: #3C649D;
+    color: white;
 }
 
-#stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1 fr 1fr;
-    grid-template-areas: 
-        'top'
-        '...'
-        'bottom'
-        '...'
+#iconQ, #iconM, #iconT {
+    color: #3C649D;
+}
+
+li{
+    text-align: left;
+    list-style-type: none;
+    font-size: 1.5em;
 }

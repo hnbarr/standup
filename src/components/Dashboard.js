@@ -3,7 +3,7 @@ import './styles/dash.css'
 import Tasks from './Tasks'
 import Blockers from './Blockers'
 import Stats from './Stats'
-import Progress from './Progress'
+import Projects from './Projects'
 import Nav from './Nav'
 // import PropTypes from 'prop-types'
 
@@ -15,15 +15,15 @@ import { ThemeProvider } from '@material-ui/styles';
 const Dashboard = props => {
     const theme = createMuiTheme({
         palette: {
-          primary: { main: '#C5CAE9' }, //green C5E0A5
-          secondary: { main: '#E8EAF6'} //purple C5CAE9
+          primary: { main: '#102D5C' }, //green C5E0A5
+          secondary: { main: '#3C649D'} //purple C5CAE9
         }
       });
         return(
             <div className='dashboard'>
               <ThemeProvider theme={theme}>
                 <Nav/>
-                <Progress />
+                <Projects />
                 <Stats />
                 <Tasks />
                 <Blockers />

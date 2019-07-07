@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, Typography } from '@material-ui/core'
+import { Paper, Typography } from '@material-ui/core'
 import './styles/sections.css'
 
 // import PropTypes from 'prop-types'
@@ -7,17 +7,29 @@ import './styles/sections.css'
 const Blockers = props => {
     return (
         <div className='component' id='blockers'>
-            <AppBar position="static" color='primary'>
+            <Paper>
                 <div className='toolbar'>
-                    <Typography variant="h6" color='inherit'> <i className="far fa-question-circle"></i> Current Blockers </Typography>
+                    <Typography variant="h6" color='inherit'><i id='iconQ' className="far fa-question-circle"></i> Current Blockers </Typography>
                     <button className='addBtn' color='secondary'><i className="fas fa-plus"></i> </button>
                 </div>
-                <AppBar position="static" color='secondary'>
-                    <div>
-                        <Typography> Test etst test</Typography>
-                    </div>
-                </AppBar>
-             </AppBar>      
+             </Paper> 
+             <Paper>
+                    <div id='blockerList'>
+                        <ul>
+                            <Blocker />
+                        </ul>
+                    </div>     
+                </Paper>      
+        </div>
+    )
+}
+
+export const Blocker = props => {
+    return (
+        <div className='newItem' id='newBlocker'>
+             <ul>
+                <li> New Blocker</li>
+            </ul>
         </div>
     )
 }
