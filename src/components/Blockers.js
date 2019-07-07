@@ -1,13 +1,16 @@
 import React from 'react'
-import { Paper, Typography } from '@material-ui/core'
-import PropTypes from 'prop-types'
+import { AppBar, Toolbar, Typography } from '@material-ui/core'
+
+// import PropTypes from 'prop-types'
 
 const Blockers = props => {
     return (
         <div className='component' id='blockers'>
-            <Paper>
-                <Typography variant='h5'>I'm the blockers section</Typography>
-            </Paper>
+            <AppBar position="static" color='primary'>
+                <Toolbar>
+                <Typography variant="h6" color='inherit'> <i className="far fa-question-circle"></i> Current Blockers </Typography>
+                </Toolbar>
+             </AppBar>      
         </div>
     )
 }

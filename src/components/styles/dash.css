@@ -1,14 +1,17 @@
 body {
     /* border: 1px solid red; */
+    background-image: url('./images/seigaiha.png');  
+    margin: 15px;
 }
 .component {
-    padding: 15px;
-    border: 1px dashed grey;
+    padding: 5px;
+    /* border: 1px dashed grey; */
     /* margin: 5px; */
 }
 
 #nav {
     grid-area: nav;
+    border-right: 1px solid rgb(203, 210, 250);
     /* background-image: url('./images/memphis-mini-dark.png');   */
 }
 
@@ -29,22 +32,22 @@ body {
 }
 
 .dashboard  {
-    height: 100vh;
+    height: 95vh;
     display: grid;
     margin: 0 auto;
-    grid-gap: 10px;
-    grid-template-columns: 1fr 2fr 2fr 2fr;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 2fr 2fr 3fr;
     grid-template-areas:
-        "nav stats tasks tasks"
-        "nav stats tasks tasks"
-        "nav blockers blockers progress"
-        "nav blockers blockers progress";
+        "nav stats progress blockers"
+        "nav stats progress blockers"
+        "nav tasks tasks tasks"
+        "nav tasks tasks tasks";
     /* background-image: url('./images/seigaiha.png'); */
 }
 
 /* media queries */
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 750px) {
     .dashboard {
       /* background-color: lightblue; */
       grid-template-columns: 2fr 3fr;
