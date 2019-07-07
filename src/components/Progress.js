@@ -1,18 +1,16 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
-import { AppBar, Toolbar, Typography } from '@material-ui/core'
+import { AppBar, Typography } from '@material-ui/core'
+import './styles/sections.css'
 
 const Progress = props => {
     return (
         <div className='component' id='progress'>
             <AppBar position="static" color='secondary'>
-                <Toolbar>
-                <Typography variant="h6" color='inherit'> Progress </Typography>
-                </Toolbar>
+                <div className='toolbar'>
+                    <Typography variant="h6" color='inherit'> Progress </Typography>
+                </div>
              </AppBar>     
-            <Typography variant='h6'>Tasks;</Typography>
-            
-            <Typography variant='h6'>Blockers;</Typography>
         </div>
     )
 }

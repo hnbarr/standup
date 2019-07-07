@@ -35,7 +35,7 @@ body {
     height: 95vh;
     display: grid;
     margin: 0 auto;
-    grid-gap: 5px;
+    grid-gap: 15px;
     grid-template-columns: 1fr 2fr 2fr 3fr;
     grid-template-areas:
         "nav stats progress blockers"
@@ -65,9 +65,9 @@ body {
       grid-template-columns: 2fr;
       grid-template-areas:
         "nav"
-        "progress"
-        "tasks"
         "stats"
+        "tasks"
+        "progress"
         "blockers";
     }
   }

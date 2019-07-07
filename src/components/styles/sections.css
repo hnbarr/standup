@@ -1,0 +1,37 @@
+.toolbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+}
+
+.addBtn {
+    width: 40px;
+    height: 40px;
+    box-shadow:  0 0 6px rgb(137, 137, 137);
+    background-color: #DCEDC8;
+    padding: 10px;
+    border-radius: 50%;
+    outline: none;
+}
+
+.addBtn:hover {
+    cursor: pointer;
+}
+
+#top{
+    grid-area: top;
+}
+#bottom{
+    grid-area: bottom;
+}
+
+#stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1 fr 1fr;
+    grid-template-areas: 
+        'top'
+        '...'
+        'bottom'
+        '...'
+}
