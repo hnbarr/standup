@@ -8,7 +8,7 @@ const Blockers = props => {
     return (
         <div className='component' id='blockers'>
                 <div className='toolbar'>
-                    <Typography variant="h6" color='inherit'><i id='iconQ' className="fas fa-brain"></i> Current Blockers </Typography>
+                    <Typography variant="h7" color='inherit'><i id='iconQ' className="fas fa-brain"></i> Current Blockers </Typography>
                     <button className='addBtn' color='secondary'><i className="fas fa-plus"></i> </button>
                 </div>
                 <div id='blockerList'>
@@ -29,7 +29,11 @@ const Blockers = props => {
 export const Blocker = props => {
     return (
         <div className='newItem' id='newBlocker'>
-            <p>{props.title}</p>
+            <p id='blockerTitle'>{props.title}</p>
+            <div id='blockerButtons'>
+                <button className='edit'><i className="fas fa-pencil-alt fa-2x"></i></button>
+                <button className='trash'><i className="fas fa-trash-alt fa-2x"></i></button>
+            </div>
         </div>
     )
 }

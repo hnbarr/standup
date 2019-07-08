@@ -7,7 +7,7 @@ const Tasks = props => {
     return (
         <div className='component' id='tasks'>
             <div className='toolbar'>
-                <Typography variant="h6" color="inherit"> <i id='iconT' className="fas fa-tasks"></i> Daily Checklist</Typography>
+                <Typography variant="h7" color="inherit"> <i id='iconT' className="fas fa-tasks"></i> Daily Checklist</Typography>
                 <button className='addBtn'color='secondary'><i className="fas fa-plus"></i> </button>
             </div>
             <div id='taskList'>
@@ -30,7 +30,11 @@ const Tasks = props => {
 export const Task = props => {
     return (
         <div className='newItem' id='newTask'>
-            <p>{props.title}</p>
+            <p id='taskTitle'>{props.title}</p>
+            <div id='taskButtons'>
+                <button className='edit'><i className="fas fa-pencil-alt fa-2x"></i></button>
+                <button className='trash'><i className="fas fa-trash-alt fa-2x"></i></button>
+            </div>
         </div>
     )
 }

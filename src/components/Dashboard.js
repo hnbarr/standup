@@ -10,7 +10,6 @@ import Nav from './Nav'
 // styles
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-// import { purple } from '@material-ui/core/colors';
 
 const Dashboard = props => {
     const theme = createMuiTheme({

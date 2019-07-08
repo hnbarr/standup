@@ -7,19 +7,19 @@ const Stats = props => {
     return (
         <div className='component' id='stats'>
                 <div className='toolbar'>
-                    <Typography variant="h6" color='inherit'> <i id='iconM' className="fas fa-medal"></i> Stats</Typography>
+                    <Typography variant="h7" color='inherit'> <i id='iconM' className="fas fa-medal"></i> Stats</Typography>
                 </div>
                 <div id='statList'>
                         <div className='stat'>
-                            <i className="fas fa-trophy fa-2x"></i>
+                            <i id='trophy' className="fas fa-trophy fa-2x"></i>
                             <Stat title={'Blockers Defeated'} count={12}/>
                         </div>
                         <div className='stat'>
-                            <i className="far fa-check-circle fa-2x"></i>                            
+                            <i id='check' className="far fa-check-circle fa-2x"></i>                            
                             <Stat title={'Tasks Completed'} count={70}/>
                         </div>
                         <div className='stat'>
-                            <i className="fas fa-glass-cheers fa-2x"></i>
+                            <i id='cheers' className="fas fa-glass-cheers fa-2x"></i>
                             <Stat title={'Projects Completed'} count={4}/>
                         </div>
                 </div>       

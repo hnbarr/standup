@@ -7,7 +7,7 @@ const Projects = props => {
     return (
         <div className='component' id='projects'>
             <div className='toolbar'>
-                <Typography variant="h6" color='inherit'> <i id='iconP' className="fas fa-project-diagram"></i> Projects </Typography>
+                <Typography variant="h7" color='inherit'> <i id='iconP' className="fas fa-project-diagram"></i> Projects </Typography>
             </div>
             <div id='projectList'>
                 <Project title={"trails n' tails"} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
@@ -31,8 +31,8 @@ export const Project = props => {
                 <p> {props.description}</p>
             </div>
             <div id='projButtons'>
-                <button><i className="fas fa-pencil-alt fa-2x"></i></button>
-                <button><i className="fas fa-trash-alt fa-2x"></i></button>
+                <button className='edit'><i className="fas fa-pencil-alt fa-2x"></i></button>
+                <button className='trash'><i  className="fas fa-trash-alt fa-2x"></i></button>
             </div>
         </div>
     )

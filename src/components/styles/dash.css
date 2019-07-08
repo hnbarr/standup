@@ -1,24 +1,18 @@
 body {
-    /* border: 1px solid red; */
-    /* background-image: url('./images/seigaiha.png');   */
-    /* padding: 5px; */
     overflow: hidden;
 }
 .component {
-    padding: 8px;
+    margin: 15px;
     /* border: 1px dashed #102D5C; */
     border-radius: 8px;
-    /* margin: 5px; */
 }
 
 #nav {
+    background-color: #2A4D82;
     grid-area: nav;
     border: none;
-    border-right: 1px solid rgb(203, 210, 250); 
-    /* E6C400  yellow*/
-    /* 3C649D blue */
-     /* rgb(203, 210, 250) light blue  */
-    color: #102D5C;
+    border-radius: 0px;
+    color: white;
 }
 
 #projects {
@@ -41,18 +35,21 @@ body {
     height: 100vh;
     display: grid;
     margin: 0 auto;
-    grid-gap: 30px;
+    grid-gap: 5px;
     grid-template-columns: 1fr 2fr 2fr 3fr;
     grid-template-areas:
         "nav stats projects blockers"
         "nav tasks tasks tasks"
-        "nav tasks tasks tasks"
         "nav tasks tasks tasks";
+        /* "nav projects tasks tasks"; */
 }
 
 /* media queries */
 
 @media only screen and (max-width: 900px) {
+    body {
+        overflow: scroll;
+    }
     .dashboard {
       /* background-color: lightblue; */
       grid-template-columns: 2fr 3fr;
@@ -70,6 +67,9 @@ body {
   }
 
   @media only screen and (max-width: 450px) {
+      body {
+          overflow: scroll;
+      }
     .dashboard {
       /* background-color: lightblue; */
       grid-template-columns: 2fr;
