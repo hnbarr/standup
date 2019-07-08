@@ -12,7 +12,6 @@
     width: 30px;
     height: 30px;
     box-shadow:  0 0 6px #3C649D;
-    /* rgb(137, 137, 137); */
     background-color: transparent;
     padding: 10px;
     border-radius: 50%;
@@ -33,8 +32,19 @@
     color: #3C649D;
 }
 
-li{
-    text-align: left;
-    list-style-type: none;
-    font-size: 1.5em;
+/* stats */
+
+#newStat, #newBlocker, #newProject, #newTask {
+    width: 100%;
+    height: 80px;
+    margin-top: 8px;
+    box-shadow:  0 0 3px rgb(133, 149, 171);
+}
+#statList, #blockerList, #projectList, #taskList {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }

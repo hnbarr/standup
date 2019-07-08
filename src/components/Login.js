@@ -9,10 +9,12 @@ export default class Login extends Component {
                 {/* <Paper className='loginPane' id='loginLeft'> */}
                     <div id='detail'>
                         <div id='leftBox'>
-                            <Typography variant='h3' id='brand'>standup</Typography>
-                            <Typography variant='h6'> <i className="fas fa-tasks"></i> Manage your daily tasks. </Typography>
-                            <Typography variant='h6'> <i className="fas fa-folder-open"></i> Log development progress. </Typography>
-                            <Typography variant='h6'> <i className="fas fa-paperclip"></i> Take notes on projects. </Typography>
+                            <div id='boxText'>
+                                <h1 id='brand'>standup</h1>
+                                <h3 variant='h6'> <i className="fas fa-tasks"></i> Manage your daily tasks. </h3>
+                                <h3 variant='h6'> <i className="fas fa-folder-open"></i> Log development progress. </h3>
+                                <h3 variant='h6'> <i className="fas fa-paperclip"></i> Take notes on projects. </h3>
+                            </div>
                         </div>
                     </div>
                 {/* </Paper> */}

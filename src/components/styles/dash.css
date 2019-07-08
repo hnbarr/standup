@@ -1,11 +1,11 @@
 body {
     /* border: 1px solid red; */
     /* background-image: url('./images/seigaiha.png');   */
-    padding: 15px;
+    /* padding: 5px; */
 }
 .component {
     padding: 8px;
-    border: 1px dashed #102D5C;
+    /* border: 1px dashed #102D5C; */
     border-radius: 8px;
     /* margin: 5px; */
 }
@@ -42,7 +42,7 @@ body {
     grid-template-columns: 1fr 2fr 2fr 3fr;
     grid-template-areas:
         "nav stats projects blockers"
-        "nav stats projects blockers"
+        "nav tasks tasks tasks"
         "nav tasks tasks tasks"
         "nav tasks tasks tasks";
 }

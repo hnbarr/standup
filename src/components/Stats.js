@@ -8,16 +8,14 @@ const Stats = props => {
         <div className='component' id='stats'>
            <Paper position="static" color='primary'>
                 <div className='toolbar'>
-                    <Typography variant="h6" color='inherit'> <i id='iconM' className="fas fa-medal"></i> Task Stats</Typography>
+                    <Typography variant="h6" color='inherit'> <i id='iconM' className="fas fa-medal"></i> Stats</Typography>
                 </div>
             </Paper>
-            <Paper>
                 <div id='statList'>
-                    <ul>
                         <Stat />
-                    </ul>
-                </div>     
-            </Paper>    
+                        <Stat />
+                        <Stat />
+                </div>       
         </div>
     )
 }
@@ -25,9 +23,8 @@ const Stats = props => {
 export const Stat = props => {
     return (
         <div className='newItem' id='newStat'>
-             <ul>
-                <li> New Stat</li>
-            </ul>
+            <p>New Stat!</p>
+            <p>216 tasks completed</p>
         </div>
     )
 }

@@ -11,14 +11,13 @@ const Tasks = props => {
                     <Typography variant="h6" color="inherit"> <i id='iconT' className="fas fa-tasks"></i> Daily Checklist</Typography>
                     <button className='addBtn'color='secondary'><i className="fas fa-plus"></i> </button>
                 </div>
-             </Paper> 
-            <Paper>
-                <div id='taskList'>
-                    <ul>
-                        <Task />
-                    </ul>
-                </div>     
-            </Paper>       
+            </Paper> 
+            <div id='taskList'>
+                <Task />
+                <Task />
+                <Task />
+                <Task />
+            </div>          
         </div>
     )
 }
@@ -26,9 +25,8 @@ const Tasks = props => {
 export const Task = props => {
     return (
         <div className='newItem' id='newTask'>
-            <ul>
-                <li> New Task</li>
-            </ul>
+            <p>New task!</p>
+            <p>finish dashboard front end</p>
         </div>
     )
 }

@@ -11,13 +11,10 @@ const Projects = props => {
                     <Typography variant="h6" color='inherit'> Projects </Typography>
                 </div>
              </Paper>  
-             <Paper>
-                <div id='progList'>
-                    <ul>
-                       <Project />
-                    </ul>
-                </div>     
-            </Paper>    
+            <div id='projectList'>
+                <Project />
+                <Project />
+            </div>        
         </div>
     )
 }
@@ -25,9 +22,8 @@ const Projects = props => {
 export const Project = props => {
     return (
         <div className='newItem' id='newProject'>
-             <ul>
-                <li> New Project</li>
-            </ul>
+            <p>New Project!</p>
+            <p>Final Project for Graduation</p>
         </div>
     )
 }
