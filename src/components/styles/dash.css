@@ -40,9 +40,9 @@ body {
     grid-gap: 5px;
     grid-template-columns: 1fr 2fr 2fr 3fr;
     grid-template-areas:
-        "nav stats projects blockers"
-        "nav tasks tasks tasks"
-        "nav tasks tasks tasks";
+        "nav projects stats blockers"
+        "nav projects tasks tasks"
+        "nav projects tasks tasks";
         /* "nav projects tasks tasks"; */
 }
 

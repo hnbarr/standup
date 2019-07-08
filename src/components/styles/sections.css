@@ -1,3 +1,7 @@
+body {
+    background-color:  rgb(253, 253, 255);
+}
+
 .toolbar{
     display: flex;
     justify-content: space-between;
@@ -10,26 +14,19 @@
 
 .addBtn {
     color: green;
-    display: flex;
-    align-content: center;
     width: 20px;
     height: 20px;
-    /* box-shadow:  0 0 6px #3C649D; */
     background-color: transparent;
-    padding: 5px;
-    /* border-radius: 50%; */
+    margin-right: 10px;
     outline: none;
     border: none;
 }
 
 .addBtn:hover {
     cursor: pointer;
+    color: rgb(38, 165, 57);
 }
 
-.addBtn:active {
-    /* background-color: #3C649D; */
-    color: #E6C400;
-}
 
 #iconQ, #iconM, #iconT, #iconP {
     color: #3C649D;
@@ -41,7 +38,7 @@
 }
 
 .stat {
-    width: 90%;
+    width: 95%;
     height: 60px;
     margin: 0 auto;
     margin-top: 5px;
@@ -74,21 +71,6 @@
     color: #E6C400;
 }
 
-.trash {
-    color: rgb(77, 47, 47) !important;
-}
-
-.submit {
-    color: rgb(38, 165, 57) !important;
-}
-
-.move {
-    color: #E6C400 !important;
-}
-
-.edit {
-    color: rgb(130, 180, 249) !important;
-}
 .stat #cheers {
     color: rgb(181, 111, 129);
 }
@@ -101,12 +83,8 @@
     border-radius: 12px;
 }
 
-#blockerList {
-    border-radius: 12px;
-}
-
 #newTask, #newBlocker {
-    width: 95%;
+    width: 100%;
     height: 40px;
     margin-top: 5px;
     box-shadow:  0 0 3px rgb(133, 149, 171);
@@ -120,17 +98,8 @@
 }
 
 .newItem {
-    width: 95%;
     margin: 0 auto;
-}
-
-#taskTitle, #blockerTitle {
-    width: 80%;
-    text-align: left;
-}
-
-#newTask {
-    width: 98%;
+    width: 100% !important;
 }
 
 #taskButtons, #blockerButtons  {
@@ -139,27 +108,30 @@
     justify-content: space-evenly;
 }
 
-
 #taskButtons button, #blockerButtons button {
-    /* padding: 8px; */
+    padding: 8px;
     outline: none;
     border: none;
     cursor: pointer;
 }
 
-.trash:hover, .edit:hover, .submit:hover, .addBtn:hover, .move:hover {
-    color: black !important;
+#blockerList, #statList {
+    width: 100%;
+    height: 280px;
+    padding: 5px;
+    overflow: scroll;
 }
 
-
-#blockerList, #projectList, #statList {
-    height: 280px;
+#projectList {
+    height: 90vh;
+    width: 100%;
     padding: 5px;
     overflow: scroll;
 }
 
 #projTitle {
     grid-area: deets;
+    padding-top: 5px;
     border-bottom: 1px solid #3C649D;
     border-right: 1px solid #3C649D;
 }
@@ -176,24 +148,54 @@
     overflow: scroll;
 }
 #projButtons {
+    margin-top: 2px;
     grid-area: buttons;
     display: flex;
     justify-content: space-around;
 }
 
 #projButtons button {
-    padding: 8px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 15px;
     outline: none;
-    border: none;
     cursor: pointer;
+    width: 70px;
+    /* border:none; */
+}
+
+.trash {
+    color: rgb(97, 35, 35);
+    border: 1px solid rgb(97, 35, 35);
+}
+
+.trash:hover {
+    border: 1px solid rgb(177, 145, 145);
+}
+
+.submit {
+    color: rgb(38, 165, 57);
+    border: 1px solid rgb(38, 165, 57);
+}
+
+.submit:hover {
+    border: 1px solid rgb(165, 206, 172);
+}
+
+.edit {
     color: #3C649D;
+    border: 1px solid #3C649D;
+}
+
+.edit:hover {
+    border: 1px solid rgb(130, 180, 249);
 }
 
 
 #newProject {
     background-color: white;
     box-shadow:  0 0 3px rgb(133, 149, 171);
-    width: 90%;
+    width: 100%;
     margin-top: 10px;
     height: 180px;
     display: grid;

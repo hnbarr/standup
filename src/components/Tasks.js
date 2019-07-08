@@ -8,7 +8,7 @@ const Tasks = props => {
         <div className='component' id='tasks'>
             <div className='toolbar'>
                 <Typography variant="subtitle1" color="inherit"> <i id='iconT' className="fas fa-tasks"></i> Today's Checklist</Typography>
-                <button className='addBtn'color='secondary'><i className="fas fa-plus"></i> </button>
+                <button className='addBtn'color='secondary'><i className="fas fa-plus-circle fa-2x"></i> </button>
             </div>
             <div id='taskList'>
                 <Task title={'item 1'}/>
@@ -38,16 +38,12 @@ export const Task = props => {
         console.log(e.target)
     }
     
-    const handleMove = (e) => {
-        console.log(e.target)
-    }
     return (
         <div className='newItem' id='newTask'>
             <Checkbox value={props.title} onClick={handleCheck} inputProps={{'aria-label': 'primary checkbox'}}/>
             <p id='taskTitle'>{props.title}</p>
             <div id='taskButtons'>
                 <button onClick={handleEdit} className='edit'><i className="fas fa-pencil-alt fa-2x"></i></button>
-                <button onClick={handleMove} className='move'><i className="fas fa-angle-down fa-2x"></i></button>
             </div>
         </div>
     )

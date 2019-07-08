@@ -9,7 +9,7 @@ const Blockers = props => {
         <div className='component' id='blockers'>
                 <div className='toolbar'>
                     <Typography variant="subtitle1" color='inherit'><i id='iconQ' className="fas fa-brain"></i> Current Blockers </Typography>
-                    <button className='addBtn' color='secondary'><i className="fas fa-plus"></i> </button>
+                    <button className='addBtn' color='secondary'><i className="fas fa-plus-circle fa-2x"></i> </button>
                 </div>
                 <div id='blockerList'>
                     <Blocker title={'item 1'}/>
@@ -30,7 +30,7 @@ export const Blocker = props => {
     const handleEdit = (e) => {
         console.log(e.target)
     }
-    
+
     const handleCheck = (e) => {
         console.log(e.target)
     }

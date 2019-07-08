@@ -8,12 +8,13 @@ const Projects = props => {
         <div className='component' id='projects'>
             <div className='toolbar'>
                 <Typography variant="subtitle1" color='inherit'> <i id='iconP' className="fas fa-project-diagram"></i> Projects </Typography>
-                <button className='addBtn' color='secondary'><i className="fas fa-plus"></i> </button>
+                <button className='addBtn' color='secondary'><i className="fas fa-plus-circle fa-2x"></i> </button>
             </div>
             <div id='projectList'>
                 <Project title={"trails n' tails"} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
                 <Project title={'standup'} description={'CRUD Application'} deadline={'08-10-2019'}/>
                 <Project title={'testApp'} description={'testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll '} deadline={'10-10-2019'}/>
+                <Project title={"trails n' tails"} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
             </div>        
         </div>
     )
@@ -46,9 +47,12 @@ export const Project = props => {
                 <p> {props.description}</p>
             </div>
             <div id='projButtons'>
-                <button onClick={handleEdit} className='edit'><i className="fas fa-pencil-alt fa-2x"></i></button>
-                <button onClick={handleDelete} className='trash'><i  className="fas fa-trash-alt fa-2x"></i></button>
-                <button onClick={handleSubmit} className='submit'><i className="fas fa-clipboard-check fa-2x"></i></button>
+                <button onClick={handleEdit} className='edit'>edit </button>
+                {/* <i className="fas fa-pencil-alt fa-2x"></i> */}
+                <button onClick={handleDelete} className='trash'>delete</button>
+                {/* <i  className="fas fa-trash-alt fa-2x"></i> */}
+                <button onClick={handleSubmit} className='submit'>submit</button>
+                {/* <i className="fas fa-clipboard-check fa-2x"></i> */}
             </div>
         </div>
     )
