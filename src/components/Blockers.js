@@ -18,6 +18,8 @@ const Blockers = props => {
                     <Blocker />
                     <Blocker />
                     <Blocker />
+                    <Blocker />
+                    <Blocker />
                 </div>     
         </div>
     )

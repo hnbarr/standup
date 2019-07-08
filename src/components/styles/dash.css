@@ -2,6 +2,7 @@ body {
     /* border: 1px solid red; */
     /* background-image: url('./images/seigaiha.png');   */
     /* padding: 5px; */
+    overflow: hidden;
 }
 .component {
     padding: 8px;

@@ -17,6 +17,9 @@ const Tasks = props => {
                 <Task />
                 <Task />
                 <Task />
+                <Task />
+                <Task />
+                <Task />
             </div>          
         </div>
     )

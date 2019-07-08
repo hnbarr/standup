@@ -36,7 +36,7 @@
 
 #newStat, #newBlocker, #newProject, #newTask {
     width: 100%;
-    height: 80px;
+    height: 70px;
     margin-top: 8px;
     box-shadow:  0 0 3px rgb(133, 149, 171);
 }
@@ -44,7 +44,24 @@
     margin-top: 5px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+/* tasts */
+#taskList {
+    /* margin-top: 5px; */
+    height: 380px;
+    padding: 5px;
+    overflow-x: hidden;
+    overflow: scroll;
+}
+
+/* blockers */
+#blockerList {
+    /* margin-top: -5px; */
+    height: 300px;
+    padding: 5px;
+    overflow-x: hidden;
+    overflow: scroll;
 }
