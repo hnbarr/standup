@@ -12,7 +12,7 @@ const Projects = props => {
             <div id='projectList'>
                 <Project title={"trails n' tails"} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
                 <Project title={'standup'} description={'CRUD Application'} deadline={'08-10-2019'}/>
-                <Project title={'testApp'} description={'testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll'} deadline={'10-10-2019'}/>
+                <Project title={'testApp'} description={'testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll '} deadline={'10-10-2019'}/>
             </div>        
         </div>
     )
