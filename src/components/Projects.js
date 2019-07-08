@@ -7,7 +7,8 @@ const Projects = props => {
     return (
         <div className='component' id='projects'>
             <div className='toolbar'>
-                <Typography variant="h7" color='inherit'> <i id='iconP' className="fas fa-project-diagram"></i> Projects </Typography>
+                <Typography variant="subtitle1" color='inherit'> <i id='iconP' className="fas fa-project-diagram"></i> Projects </Typography>
+                <button className='addBtn' color='secondary'><i className="fas fa-plus"></i> </button>
             </div>
             <div id='projectList'>
                 <Project title={"trails n' tails"} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
@@ -19,20 +20,35 @@ const Projects = props => {
 }
 
 export const Project = props => {
+
+    const handleEdit = (e) => {
+        console.log(e.target)
+    }
+
+    const handleDelete = (e) => {
+        console.log(e.target)
+    }
+    const handleSubmit = (e) => {
+        console.log(e.target)
+    }
     return (
         <div className='newItem' id='newProject'>
             <div id='projTitle'>
                 <p>{props.title}</p>
             </div>
             <div id='projDeadline'>
-                <p><b>Deadline:</b> {props.deadline}</p>
+                <div id='dline'>
+                    <b>Deadline:</b>
+                    <p>{props.deadline}</p>
+                </div>
             </div>
             <div id='projDes'>
                 <p> {props.description}</p>
             </div>
             <div id='projButtons'>
-                <button className='edit'><i className="fas fa-pencil-alt fa-2x"></i></button>
-                <button className='trash'><i  className="fas fa-trash-alt fa-2x"></i></button>
+                <button onClick={handleEdit} className='edit'><i className="fas fa-pencil-alt fa-2x"></i></button>
+                <button onClick={handleDelete} className='trash'><i  className="fas fa-trash-alt fa-2x"></i></button>
+                <button onClick={handleSubmit} className='submit'><i className="fas fa-clipboard-check fa-2x"></i></button>
             </div>
         </div>
     )

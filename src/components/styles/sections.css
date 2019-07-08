@@ -41,10 +41,12 @@
 }
 
 .stat {
-    width: 100%;
+    width: 90%;
     height: 60px;
+    margin: 0 auto;
     margin-top: 5px;
     display: flex;
+    padding: 10px;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
@@ -54,7 +56,9 @@
 }
 
 #newStat {
+    padding: 5px;
     width: 80%;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -71,7 +75,15 @@
 }
 
 .trash {
-    color: rgb(120, 71, 71) !important;
+    color: rgb(77, 47, 47) !important;
+}
+
+.submit {
+    color: rgb(38, 165, 57) !important;
+}
+
+.move {
+    color: #E6C400 !important;
 }
 
 .edit {
@@ -94,8 +106,8 @@
 }
 
 #newTask, #newBlocker {
-    width: 100%;
-    height: 45px;
+    width: 95%;
+    height: 40px;
     margin-top: 5px;
     box-shadow:  0 0 3px rgb(133, 149, 171);
     display: flex;
@@ -107,20 +119,26 @@
     padding: 10px;
 }
 
+.newItem {
+    width: 95%;
+    margin: 0 auto;
+}
+
 #taskTitle, #blockerTitle {
     width: 80%;
     text-align: left;
 }
 
-#taskButtons, #blockerButtons  {
-    width: 20%;
-    display: flex;
-    justify-content: space-around;
+#newTask {
+    width: 98%;
 }
 
-#taskButtons {
-    width: 10% !important;
+#taskButtons, #blockerButtons  {
+    width: 100px;
+    display: flex;
+    justify-content: space-evenly;
 }
+
 
 #taskButtons button, #blockerButtons button {
     /* padding: 8px; */
@@ -129,7 +147,7 @@
     cursor: pointer;
 }
 
-.trash:hover, .edit:hover {
+.trash:hover, .edit:hover, .submit:hover, .addBtn:hover, .move:hover {
     color: black !important;
 }
 
@@ -164,7 +182,6 @@
 }
 
 #projButtons button {
-    width: 80px;
     padding: 8px;
     outline: none;
     border: none;
@@ -172,16 +189,11 @@
     color: #3C649D;
 }
 
-#projButtons button:hover {
-    color: #E6C400;
-     /* rgb(25, 46, 75) !important; */
-}
-
 
 #newProject {
     background-color: white;
     box-shadow:  0 0 3px rgb(133, 149, 171);
-    width: 100%;
+    width: 90%;
     margin-top: 10px;
     height: 180px;
     display: grid;
@@ -201,19 +213,81 @@
 
 /* media queries */
 @media only screen and (max-width: 900px) {
+    #newProject, #newBlocker {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    #newStat p {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
     #taskList, #blockerList {
         height: 200px;
+        width: 98%;
+        margin: 0 auto;
+        padding: 5px;
+    }
+
+    #newProject {
+       width: 95%;
+       margin: 0 auto;
+    }
+
+
+    #newTask, #newBlocker {
+        width: 97%;
+    }
+
+    #projTitle, #projDeadline {
+        display: flex;
+        align-items: center;
+    }
+
+    #newProject p {
+        margin: 0 auto;
     }
 
     .dashboard {
-        grid-gap: 5px;
+        grid-gap: 3px;
+    }
+
+    #projectList {
+        height: 200px;
+    }
+
+    .stat {
+        padding: 8px;
+        height: 50px;
+        width: 95%;
+        margin: 0 auto;
     }
 
     #projButtons {
         background-color: transparent;
     }
+
+    #dline {
+        display: block;
+        margin: 0 auto;
+    }
   }
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 600px) {
+    #taskTitle, #blockerTitle {
+        width: 60%;
+    }
+
+    #newTask, #newProject, #newBlocker, .stat {
+        width: 90%;
+        margin: 0 auto;
+    }
     
+    #taskButtons, #blockerButtons  {
+        width: 40%;
+        display: flex;
+        justify-content: space-evenly;
+    }
   }

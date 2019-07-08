@@ -8,11 +8,13 @@ body {
 }
 
 #nav {
-    background-color: #2A4D82;
+    /* background-color: #2A4D82; */
+    background-image: url('./images/dimPaint.jpeg');
+    background-size: cover;
     grid-area: nav;
     border: none;
     border-radius: 0px;
-    color: white;
+    color: #3C649D;
 }
 
 #projects {
@@ -60,13 +62,17 @@ body {
         "blockers blockers";
     }
 
+    #stats, #projects {
+        height: 250px;
+    }
+
     #nav {
         border: none;
         border-bottom: 1px solid #E6C400;
     }
   }
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 500px) {
       body {
           overflow: scroll;
       }

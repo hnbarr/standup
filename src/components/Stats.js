@@ -7,7 +7,7 @@ const Stats = props => {
     return (
         <div className='component' id='stats'>
                 <div className='toolbar'>
-                    <Typography variant="h7" color='inherit'> <i id='iconM' className="fas fa-medal"></i> Stats</Typography>
+                    <Typography variant="subtitle1" color='inherit'> <i id='iconM' className="fas fa-medal"></i> Stats</Typography>
                 </div>
                 <div id='statList'>
                         <div className='stat'>
@@ -20,7 +20,7 @@ const Stats = props => {
                         </div>
                         <div className='stat'>
                             <i id='cheers' className="fas fa-glass-cheers fa-2x"></i>
-                            <Stat title={'Projects Completed'} count={4}/>
+                            <Stat title={'Projects Submitted'} count={4}/>
                         </div>
                 </div>       
         </div>
