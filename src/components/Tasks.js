@@ -1,25 +1,27 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
-import { Typography, Paper } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import './styles/sections.css'
 
 const Tasks = props => {
     return (
         <div className='component' id='tasks'>
-            <Paper position="static" color='primary'>
-                <div className='toolbar'>
-                    <Typography variant="h6" color="inherit"> <i id='iconT' className="fas fa-tasks"></i> Daily Checklist</Typography>
-                    <button className='addBtn'color='secondary'><i className="fas fa-plus"></i> </button>
-                </div>
-            </Paper> 
+            <div className='toolbar'>
+                <Typography variant="h6" color="inherit"> <i id='iconT' className="fas fa-tasks"></i> Daily Checklist</Typography>
+                <button className='addBtn'color='secondary'><i className="fas fa-plus"></i> </button>
+            </div>
             <div id='taskList'>
-                <Task />
-                <Task />
-                <Task />
-                <Task />
-                <Task />
-                <Task />
-                <Task />
+                <Task title={'item 1'}/>
+                <Task title={'item 2'}/>
+                <Task title={'item 3'}/>
+                <Task title={'item 4'}/>
+                <Task title={'item 5'}/>
+                <Task title={'item 6'}/>
+                <Task title={'item 7'}/>
+                <Task title={'item 8'}/>
+                <Task title={'item 9'}/>
+                <Task title={'item 10'}/>
+                <Task title={'item 11'}/>
             </div>          
         </div>
     )
@@ -28,14 +30,13 @@ const Tasks = props => {
 export const Task = props => {
     return (
         <div className='newItem' id='newTask'>
-            <p>New task!</p>
-            <p>finish dashboard front end</p>
+            <p>{props.title}</p>
         </div>
     )
 }
 
 Tasks.propTypes = {
-
+    // title: String
 }
 
 export default Tasks

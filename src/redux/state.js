@@ -1,15 +1,25 @@
 export default {
-    notes: [
+    projects: [
         {
             title: 'test note',
-            description: 'this is a note, maybe its about a proplem im having',
-            date: 07-04-2019
+            description: 'this is a project on tasks',
+            deadline: 07-04-2019
         }
     ],
     tasks: [
         {
-            task: 'test task',
-            date: 07-04-2019
+            title: 'test task'
+        }
+    ],
+    blockers: [
+        {
+            title: 'test task'
+        }
+    ],
+    stats: [
+        {
+            title: 'test task',
+            count: 12,
         }
     ]
 }

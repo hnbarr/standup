@@ -14,8 +14,10 @@ body {
 #nav {
     grid-area: nav;
     border: none;
-    border-right: 1px solid #E6C400;
-     /* rgb(203, 210, 250);  */
+    border-right: 1px solid rgb(203, 210, 250); 
+    /* E6C400  yellow*/
+    /* 3C649D blue */
+     /* rgb(203, 210, 250) light blue  */
     color: #102D5C;
 }
 
@@ -36,10 +38,10 @@ body {
 }
 
 .dashboard  {
-    height: 95vh;
+    height: 100vh;
     display: grid;
     margin: 0 auto;
-    grid-gap: 15px;
+    grid-gap: 30px;
     grid-template-columns: 1fr 2fr 2fr 3fr;
     grid-template-areas:
         "nav stats projects blockers"
