@@ -2,6 +2,7 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import { Typography, Checkbox } from '@material-ui/core'
 import './styles/sections.css'
+// import TaskModal from './Modals'
 
 const Tasks = props => {
     return (
@@ -33,7 +34,6 @@ export const Task = props => {
         // setTimeout to remove from array
         // setTimeout to add +1 to tasksCompleted in stats
     }
-
     const handleEdit = (e) => {
         console.log(e.target)
     }

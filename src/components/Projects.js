@@ -21,11 +21,9 @@ const Projects = props => {
 }
 
 export const Project = props => {
-
     const handleEdit = (e) => {
         console.log(e.target)
     }
-
     const handleDelete = (e) => {
         console.log(e.target)
     }
