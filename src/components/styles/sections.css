@@ -171,6 +171,7 @@ body {
 
 .trash:hover {
     border: 1px solid rgb(177, 145, 145);
+    color: rgb(177, 145, 145);
 }
 
 .submit {
@@ -180,6 +181,7 @@ body {
 
 .submit:hover {
     border: 1px solid rgb(165, 206, 172);
+    color: rgb(165, 206, 172);
 }
 
 .edit {
@@ -189,6 +191,7 @@ body {
 
 .edit:hover {
     border: 1px solid rgb(130, 180, 249);
+    color: rgb(130, 180, 249);
 }
 
 
