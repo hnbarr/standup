@@ -191,7 +191,7 @@ body {
 
 .edit:hover {
     border: 1px solid rgb(130, 180, 249);
-    color: rgb(130, 180, 249);
+    /* color: rgb(130, 180, 249); */
 }
 
 
