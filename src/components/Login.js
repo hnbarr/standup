@@ -13,7 +13,7 @@ export default class Login extends Component {
                                 <h1 id='brand'>standup</h1>
                                 <h3 variant='h6'> <i className="fas fa-tasks"></i> Manage your daily tasks. </h3>
                                 <h3 variant='h6'> <i className="fas fa-folder-open"></i> Log development progress. </h3>
-                                <h3 variant='h6'> <i className="fas fa-paperclip"></i> Take notes on projects. </h3>
+                                <h3 variant='h6'> <i className="fas fa-paperclip"></i> Keep track of projects </h3>
                             </div>
                         </div>
                     </div>

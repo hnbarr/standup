@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import Login from './components/Login'
-import Dashboard from './components/Dashboard'
+import { BrowserRouter } from 'react-router-dom'
+import Router from './Router'
+
 
 export default class App extends Component{
   render(){
       return (
-        <div className="App">
-            {/* <Login />  */}
-            {/* if login true render Home, if not render this page */}
-            <Dashboard />
+      <BrowserRouter>
+          <div className="App">
+              <Router />
         </div>
+      </BrowserRouter>
       );
   }
 }
