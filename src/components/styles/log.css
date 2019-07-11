@@ -4,12 +4,12 @@
     border: 1px solid green;
 }
 #logLeftPane {
-    grid-area: left;
+    grid-area: logs;
     height: 100vh;
 }
 
 #logRightPane {
-    grid-area: right;
+    grid-area: preview;
     height: 100vh;
     border-left: 1px solid rgb(25, 82, 162);
 }
@@ -18,7 +18,7 @@
     display: grid;
     grid-template-columns: 1fr 3fr 4fr;
     grid-template-areas: 
-        'nav left right'
+        'nav logs preview'
 }
 
 #addNewLog {
@@ -49,6 +49,7 @@
 }
 
 #addNewLog {
+    grid-area: form;
     padding: 20px;
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -63,20 +64,38 @@
 }
 
 #logList {
+    grid-area: list;
     overflow: scroll;
     padding: 10px;
-    height: 70%;
+    height: 90%;
     margin: 0 auto;
+    margin-top: 10px;
     width: 90%;
     /* border: 1px solid rgb(235, 218, 121); */
 }
+
+#logh3 {
+    text-align: left;
+    margin: 0 auto;
+    color: rgb(117, 135, 237);
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #E6C400;
+}
+
+/* .fas:hover {
+    cursor: pointer;
+    color: #4456B7;
+} */
 
 .logItem {
     border-left: 1px solid #4456B7;
     border-radius: 12px;
     padding: 10px;
     width: 90%;
-    /* margin: 0 auto; */
     margin-top: 8px;
     height: 90px;
 }
@@ -89,11 +108,13 @@
 #liDate {
     text-align: right;
     grid-area: lidate;
+    font-size: 12px;
 }
 
 #liTag {
     text-align: right;
     grid-area: litag;
+    font-size: 12px;
 }
 
 #deets {
@@ -103,4 +124,19 @@
     grid-template-areas:
         'title lidate'
         '... litag'
+}
+
+.logPreview {
+    border: 1px solid #4456B7;
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+@media only screen and (max-width: 900px) {
+
+}
+
+@media only screen and (max-width: 600px) {
+
 }

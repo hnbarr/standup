@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './styles/login.css'
+import Dashboard from './Dashboard'
 import { TextField, Button, Input, Typography} from '@material-ui/core'
+import { Link } from 'react-router-dom'
 
 export default class Login extends Component {
     render() {
@@ -26,6 +28,7 @@ export default class Login extends Component {
                             <TextField id="outlined-password-input" label="Password" type="password" autoComplete="current-password" variant="outlined"/>
                             <div id='buttonSection'>
                                 <Button variant='outlined' color='primary'>Login</Button>
+                                <Link to='/dashboard'> dash </Link> 
                             </div>
                         </form>
                     </div>
