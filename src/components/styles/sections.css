@@ -151,6 +151,7 @@ body {
     grid-area: buttons;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 #projButtons button {
@@ -161,6 +162,11 @@ body {
     cursor: pointer;
     width: 70px;
     /* border:none; */
+}
+
+#projButtons a{
+    font-size: 11px;
+    text-decoration: none;
 }
 
 .trash {
@@ -213,6 +219,12 @@ body {
 #newProject b {
     font-size: 13px;
     color: navy;
+}
+
+.edit span {
+    border-left: 1px solid rgb(167, 186, 213);
+    padding: 2px;
+    font-size: 10px;
 }
 
 /* media queries */

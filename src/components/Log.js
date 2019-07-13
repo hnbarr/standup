@@ -10,19 +10,16 @@ const Log = props => {
             <Nav id='navLog'/>
             <div id='logLeftPane'>
                 <div id='logBar'> 
-                    <h3>Logs</h3>
+                    <h3>project title</h3>
                     <button className='addBtn' color='secondary'><i className="fas fa-plus-circle fa-2x"></i> </button>
                 </div>
                 <div id='logList'>
                 <TextField id="formTag" label="search" placeholder='eg. mongo'/>
-                    <LogListItem title='middleware hack' date='04-20-2019' tag='express' />
-                    <LogListItem title='easy router' date='02-15-2019' tag='react router' />
-                    <LogListItem title='mongo steps' date='04-15-2019' tag='mongo' />
-                    <LogListItem title='middleware hack' date='04-20-2019' tag='express' />
-                    <LogListItem title='easy router' date='02-15-2019' tag='react router' />
-                    <LogListItem title='mongo steps' date='04-15-2019' tag='mongo' />
-                    <LogListItem title='easy router' date='02-15-2019' tag='react router' />
-                    <LogListItem title='mongo steps' date='04-15-2019' tag='mongo' />
+                    <LogListItem title='thinking of changing to bootstrap' date='04-20-2019' tag='styles' />
+                    <LogListItem title='easy router setup' date='02-15-2019' tag='react router' />
+                    <LogListItem title='getting mongo connected' date='04-15-2019' tag='mongo' />
+                    <LogListItem title='deploy app test' date='04-20-2019' tag='heroku' />
+                    <LogListItem title='starting project: the plan' date='02-15-2019' tag='start' />
                 </div>
             </div>
 

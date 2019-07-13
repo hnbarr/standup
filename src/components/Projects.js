@@ -2,6 +2,7 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import { Typography } from '@material-ui/core'
 import './styles/sections.css'
+import { Link } from 'react-router-dom'
 
 const Projects = props => {
     return (
@@ -11,10 +12,10 @@ const Projects = props => {
                 <button className='addBtn' color='secondary'><i className="fas fa-plus-circle fa-2x"></i> </button>
             </div>
             <div id='projectList'>
-                <Project title={"trails n' tails"} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
-                <Project title={'standup'} description={'CRUD Application'} deadline={'08-10-2019'}/>
-                <Project title={'testApp'} description={'testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll '} deadline={'10-10-2019'}/>
-                <Project title={"trails n' tails"} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
+                <Project title={"trails n' tails"} logs={'5'} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
+                <Project title={'standup'} logs={'3'} description={'CRUD Application'} deadline={'08-10-2019'}/>
+                <Project title={'testApp'} logs={'7'} description={'testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll '} deadline={'10-10-2019'}/>
+                <Project title={"trails n' tails"} logs={'2'} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
             </div>        
         </div>
     )
@@ -45,7 +46,7 @@ export const Project = props => {
                 <p> {props.description}</p>
             </div>
             <div id='projButtons'>
-                <button onClick={handleEdit} className='edit'>edit </button>
+                <Link to='./log' className='edit'>details <span>{props.logs}</span>{/*number of log list items for project*/} </Link>
                 {/* <i className="fas fa-pencil-alt fa-2x"></i> */}
                 <button onClick={handleDelete} className='trash'>delete</button>
                 {/* <i  className="fas fa-trash-alt fa-2x"></i> */}
