@@ -1,10 +1,16 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const Notes = new Schema ({
+const Projects = new Schema ({
     title: String,
     description: String,
-    topic: String,
+    deadline: Date
+})
+
+const Logs = new Schema ({
+    title: String,
+    description: String,
+    tag: String,
     date: Date
 })
 
@@ -13,7 +19,13 @@ const Tasks = new Schema ({
     date: Date
 })
 
+const Blockers = new Schema ({
+    task: String,
+    date: Date
+})
 module.exports = {
-    Notes,
-    Tasks
+    Projects,
+    Logs,
+    Tasks,
+    Blockers
 }

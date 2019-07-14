@@ -1,10 +1,15 @@
 const mongoose = require('mongoose')
-const { Notes, Tasks} = require('./schemas')
+const { Tasks, Blockers, Logs, Projects } = require('./schemas')
 
-const NotesModel = mongoose.model('Note', Notes)
 const TasksModel = mongoose.model('Task', Tasks)
+const BlockersModel = mongoose.model('Blocker', Blockers)
+const LogsModel = mongoose.model('Log', Logs)
+const ProjectsModel = mongoose.model('Project', Projects)
+
 
 module.exports = {
-    NotesModel,
-    TasksModel
+    TasksModel,
+    BlockersModel,
+    LogsModel,
+    ProjectsModel
 }
