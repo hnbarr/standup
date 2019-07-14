@@ -46,6 +46,23 @@ body {
         /* "nav projects tasks tasks"; */
 }
 
+.navBtns {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#logoutBtn, #dashBtn {
+    color: #3C649D;
+    border: 1px solid #3C649D;
+    margin: 10px;
+    border-radius: 12px;
+    padding: 10px;
+    text-decoration: none;
+    outline: none;
+}
+
 /* media queries */
 
 @media only screen and (max-width: 900px) {
@@ -68,7 +85,15 @@ body {
 
     #nav {
         border: none;
-        border-bottom: 1px solid #E6C400;
+        /* border-bottom: 1px solid #E6C400; */
+    }
+
+    .navBtns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size: 10px;
     }
   }
 
@@ -88,6 +113,6 @@ body {
     }
     #nav {
         border: none;
-        border-bottom: 1px solid #E6C400;
+        /* border-bottom: 1px solid #E6C400; */
     }
   }

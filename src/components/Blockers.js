@@ -33,7 +33,7 @@ export const Blocker = props => {
     }
 
     const handleCheck = (e) => {
-        console.log(e.target)
+        console.log(e.target.value)
     }
     return (
         <div className='newItem' id='newBlocker'>
