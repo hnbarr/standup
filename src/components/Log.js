@@ -1,7 +1,8 @@
 import React from 'react'
 import './styles/log.css'
 import Nav from './Nav'
-import { TextField, Button } from '@material-ui/core'
+import { TextField, Button, Modal, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles';
 // import PropTypes from 'prop-types'
 
 const Log = props => {
@@ -11,15 +12,20 @@ const Log = props => {
             <div id='logLeftPane'>
                 <div id='logBar'> 
                     <h3>project title</h3>
-                    <button className='addBtn' color='secondary'><i className="fas fa-plus-circle fa-2x"></i> </button>
+                    <LogModal />
                 </div>
+                <form id='search'>
+                    <TextField id="searchTag" variant='outlined' label="search" placeholder='eg. mongo'/>
+                    <Button id='searchBtn' color='primary' type='submit' variant='outlined'>go</Button>
+                </form>
                 <div id='logList'>
-                <TextField id="formTag" label="search" placeholder='eg. mongo'/>
                     <LogListItem title='thinking of changing to bootstrap' date='04-20-2019' tag='styles' />
                     <LogListItem title='easy router setup' date='02-15-2019' tag='react router' />
                     <LogListItem title='getting mongo connected' date='04-15-2019' tag='mongo' />
                     <LogListItem title='deploy app test' date='04-20-2019' tag='heroku' />
                     <LogListItem title='starting project: the plan' date='02-15-2019' tag='start' />
+                    <LogListItem title='easy router setup' date='02-15-2019' tag='react router' />
+                    <LogListItem title='getting mongo connected' date='04-15-2019' tag='mongo' />
                 </div>
             </div>
 
@@ -30,18 +36,7 @@ const Log = props => {
     )
 }
 
-// const LogForm = props => { //this will come up on modal
-//     return (
-//         <form id='addNewLog'>
-//             <TextField id="formTitle" label="Title" margin="normal" variant="outlined"/>
-//             <TextField id="formTag" label="Tag" margin="normal" variant="outlined" placeholder='eg. Redux'/>
-//             <TextField id="formText" label="Text" placeholder="write here ..." multiline margin="normal" variant="outlined"/>
-//             <Button id='formBtn' variant='outlined' color='primary'>Add New</Button>
-//         </form>
-//     )
-// }
-
-const LogListItem = props => {
+export const LogListItem = props => {
     const handleSelect = (e) => {
         e.preventDefault()
         console.log(e.target)
@@ -57,7 +52,7 @@ const LogListItem = props => {
     )
 }
 
-const LogPreview = props => {
+export const LogPreview = props => {
     const handleEdit = () => {
 
     }
@@ -70,12 +65,68 @@ const LogPreview = props => {
                 display name, date and tag of clicked log.  
             </div>
             <div id='previewTextBox'>
-                display description/body of clicked on log
+                body here
             </div>
             <div id='previewBtns'>
                 <button onClick={handleEdit} className='edit'>edit </button>
                 <button onClick={handleDelete} className='trash'>delete</button>
             </div>
+        </div>
+    )
+}
+
+export const LogModal = props => { 
+    const [open, setOpen] = React.useState(false);
+    
+      const useStyles = makeStyles(theme => ({
+        paper: {
+          position: 'absolute',
+          top: '100px',
+          left: '200px',
+          width: 500,
+          [theme.breakpoints.down('sm')]: {
+            top: '80px',
+            left: '100px',
+            width: '400px'
+          },
+          [theme.breakpoints.down('xs')]: {
+            top: '40px',
+            left: '50px',
+            width: '300px'
+          },
+          backgroundColor: theme.palette.background.paper,
+          border: '2px solid #000',
+          boxShadow: theme.shadows[5],
+          padding: theme.spacing(2, 4, 4),
+          outline: 'none',
+        },
+      }));
+
+    const classes = useStyles();
+
+    const handleOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+    
+    return (
+        <div>
+            <button onClick={handleOpen} className='addBtn' ><i className="fas fa-plus-circle fa-2x"></i> </button>
+            <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={open} onClose={handleClose}>
+                <div id='addNewLog' className={classes.paper}>
+                    <Typography id='modalName' color='primary'> add a new log</Typography>
+                    <TextField className="formTitle" label="Title" margin="normal" variant="outlined"/>
+                    <TextField className="formTag" label="Tag" margin="normal" variant="outlined" placeholder='eg. Redux'/>
+                    <TextField className='formText' id="outlined-multiline-static" label="write here" rows="5" margin="normal" variant="outlined" multiline />
+                    <div id='buttons'>
+                        <Button className='formBtn' variant='outlined' color='primary'>Add New</Button>
+                        <Button onClick={handleClose} className='closeBtn' variant='outlined' color='default'>cancel</Button>
+                    </div>
+                </div>
+            </Modal>
         </div>
     )
 }

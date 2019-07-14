@@ -13,7 +13,7 @@
     height: 100vh;
     display: flex;
     align-items: center;
-    border-left: 1px solid rgb(25, 82, 162);
+    /* border-left: 1px solid rgb(25, 82, 162); */
 }
 
 #log {
@@ -23,41 +23,47 @@
         'nav logs preview'
 }
 
-#addNewLog {
-    border-bottom: 1px solid #E6C400;
-    width: 90%;
-    margin: 0 auto;
-    margin-bottom: 10px;
-}
-
-#formTitle {
+.formTitle {
     grid-area: title;
 }
 
-#formTag {
+.formTag {
     grid-area: tag;
 }
 
-#formText {
+.formText {
     grid-area: text;
 }
 
-#formBtn {
+#modalName {
+    grid-area: modal;
     height: 50px;
-    width: 100px;
-    margin: 0 auto;
-    align-self: center;
-    grid-area: btn;    
 }
 
-#addNewLog {
+#buttons {
+    grid-area: btn;
+    display: flex;
+    justify-content: space-around;
+}
+
+.formBtn, .closeBtn {
+    height: 50px;
+    width: 40%;
+    margin: 0 auto;
+    /* align-self: center; */    
+}
+
+#addNewLog, #addNewProject {
     grid-area: form;
     padding: 20px;
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr 2fr 2fr 3fr 2fr;
     grid-template-areas: 
-        "title tag"
-        "text btn"
+        "modal"
+        "title"
+        "tag"
+        "text"
+        "btn"
 }
 
 #liTitle {
@@ -69,7 +75,7 @@
     grid-area: list;
     overflow: scroll;
     padding: 10px;
-    height: 90%;
+    height: 80%;
     margin: 0 auto;
     margin-top: 10px;
     width: 90%;
@@ -97,7 +103,7 @@
     border-left: 1px solid #4456B7;
     border-radius: 12px;
     padding: 10px;
-    width: 90%;
+    width: 95%;
     margin-top: 8px;
     height: 90px;
 }
@@ -167,6 +173,24 @@
     align-items: center;
 }
 
+#searchTag{
+    grid-area: box;
+}
+
+#searchBtn {
+    grid-area: btn;
+}
+
+#search {
+    width: 70%;
+    margin:0 auto;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+        'box btn'
+}
+
 
 @media only screen and (max-width: 900px) {
     #log {
@@ -191,7 +215,7 @@
 
     #logLeftPane {
         width: 100 vw;
-        height: 275px;
+        height: 400px;
     }
 
     #logRightPane {
@@ -201,7 +225,7 @@
     }
 
     #logList {
-        height: 70%;
+        height: 60%;
         border-bottom: 1px solid rgb(207, 213, 220);
     }
     #logPreview {

@@ -1,6 +1,7 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
-import { Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles';
+import { Typography, TextField, Button, Modal } from '@material-ui/core'
 import './styles/sections.css'
 import { Link } from 'react-router-dom'
 
@@ -9,7 +10,7 @@ const Projects = props => {
         <div className='component' id='projects'>
             <div className='toolbar'>
                 <Typography variant="subtitle1" color='inherit'> <i id='iconP' className="fas fa-project-diagram"></i> Projects </Typography>
-                <button className='addBtn' color='secondary'><i className="fas fa-plus-circle fa-2x"></i> </button>
+                <ProjectModal />
             </div>
             <div id='projectList'>
                 <Project title={"trails n' tails"} logs={'5'} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
@@ -22,9 +23,6 @@ const Projects = props => {
 }
 
 export const Project = props => {
-    const handleEdit = (e) => {
-        console.log(e.target)
-    }
     const handleDelete = (e) => {
         console.log(e.target)
     }
@@ -53,6 +51,61 @@ export const Project = props => {
                 <button onClick={handleSubmit} className='submit'>submit</button>
                 {/* <i className="fas fa-clipboard-check fa-2x"></i> */}
             </div>
+        </div>
+    )
+}
+
+export const ProjectModal = props => {
+    const [open, setOpen] = React.useState(false);
+    
+      const useStyles = makeStyles(theme => ({
+        paper: {
+          position: 'absolute',
+          top: '100px',
+          left: '300px',
+          width: '500px',
+          [theme.breakpoints.down('sm')]: {
+            top: '80px',
+            left: '150px',
+            width: '400px'
+          },
+          [theme.breakpoints.down('xs')]: {
+            top: '50px',
+            left: '40px',
+            width: '300px'
+          },
+          backgroundColor: theme.palette.background.paper,
+          border: '2px solid #000',
+          boxShadow: theme.shadows[5],
+          padding: theme.spacing(2, 4, 4),
+          outline: 'none',
+        },
+      }));
+
+    const classes = useStyles();
+
+    const handleOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+    return (
+        <div>
+            <button onClick={handleOpen} className='addBtn'><i className="fas fa-plus-circle fa-2x"></i> </button>
+            <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={open} onClose={handleClose}>
+                <div id='addNewProject' className={classes.paper}>
+                    <Typography id='modalName' color='primary'> add a new project</Typography>
+                    <TextField className="formTitle" label="title" margin="normal" variant="outlined"/>
+                    <TextField className="formTag" label="deadline" margin="normal" variant="outlined" placeholder='mm/dd/yyyy'/>
+                    <TextField className='formText' id="outlined-multiline-static" label="description" rows="5" margin="normal" variant="outlined" multiline />
+                    <div id='buttons'>
+                        <Button className='formBtn' variant='outlined' color='primary'>Add New</Button>
+                        <Button onClick={handleClose} className='closeBtn' variant='outlined'>cancel</Button>
+                    </div>
+                </div>
+            </Modal>
         </div>
     )
 }
