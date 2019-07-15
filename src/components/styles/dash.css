@@ -7,6 +7,12 @@ body {
     border-radius: 8px;
 }
 
+#date {
+    grid-area: date;
+    font-size: 18px;
+    padding: 3px;
+}
+
 #nav {
     /* background-color: #2A4D82; */
     background-image: url('./images/dimPaint.jpeg');
@@ -15,6 +21,52 @@ body {
     border: none;
     border-radius: 0px;
     color: #3C649D;
+    display: grid;
+    grid-template-rows: 1fr 4fr 4fr;
+    grid-template-areas:
+        'date'    
+        'avatar' 
+        'btns' 
+}
+
+#avatar a {
+    color: white;
+    font-size: 25px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+#logoutBtn {
+    grid-area: logout;
+}
+
+#logoutBtn:hover {
+    background-color: rgb(152, 172, 199);
+    border: none;
+    color: white;
+}
+.navBtns {
+    grid-area: btns;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+}
+
+#avatar {
+    grid-area: avatar;
+    width: 100px;
+    height: 100px;
+    background-color:  rgb(152, 172, 199);
+    border-radius: 50%;
+    margin: 0 auto;
 }
 
 #projects {
@@ -38,19 +90,12 @@ body {
     display: grid;
     margin: 0 auto;
     grid-gap: 5px;
-    grid-template-columns: 1fr 2fr 2fr 3fr;
+    grid-template-columns: 1fr 3fr 3fr 4fr;
     grid-template-areas:
         "nav projects stats blockers"
         "nav projects tasks tasks"
         "nav projects tasks tasks";
         /* "nav projects tasks tasks"; */
-}
-
-.navBtns {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
 }
 
 #logoutBtn, #dashBtn {
@@ -70,13 +115,15 @@ body {
         overflow: scroll;
     }
     .dashboard {
+        height: 100%;
+        width: 100%;
       /* background-color: lightblue; */
-      grid-template-columns: 2fr 3fr;
-      grid-template-areas:
-        "nav nav"
-        "tasks tasks"
-        "stats projects"
-        "blockers blockers";
+        grid-template-columns: 2fr 3fr;
+        grid-template-areas:
+            "nav nav"
+            "tasks tasks"
+            "stats projects"
+            "blockers blockers";
     }
 
     #stats, #projects {
@@ -84,14 +131,24 @@ body {
     }
 
     #nav {
+        align-items: center;
         border: none;
-        /* border-bottom: 1px solid #E6C400; */
+        height: 90px;
+        display: grid;
+        grid-template-columns: 2fr 4fr 2fr;
+        grid-template-areas:
+            'avatar date btns' 
+    }
+
+    #avatar, #avatar a{
+        width: 75px;
+        height: 75px;
     }
 
     .navBtns {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: flex-end;
         align-items: center;
         font-size: 10px;
     }

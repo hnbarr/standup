@@ -7,9 +7,11 @@ const Nav = props => {
     const DATE = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
     return (
         <div id='nav'>
+            <div id='avatar'> 
+                <Link to='/dashboard' id='dashBtn'> HB </Link> 
+            </div>
             <Typography variant='h6' id='date'> {(new Date()).toLocaleDateString('en-US', DATE)} </Typography>
-            <div className='navBtns'>
-                <Link to='/dashboard' id='dashBtn'> dashboard </Link> 
+            <div className='navBtns'> 
                 <Link to='/' id='logoutBtn'> logout </Link> 
             </div>
         </div>
