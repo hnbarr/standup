@@ -82,16 +82,16 @@ export const LogModal = props => {
         paper: {
           position: 'absolute',
           top: '100px',
-          left: '200px',
-          width: 500,
+          left: '300px',
+          width: '500px',
           [theme.breakpoints.down('sm')]: {
             top: '80px',
-            left: '100px',
+            left: '150px',
             width: '400px'
           },
           [theme.breakpoints.down('xs')]: {
-            top: '40px',
-            left: '50px',
+            top: '50px',
+            left: '40px',
             width: '300px'
           },
           backgroundColor: theme.palette.background.paper,
@@ -121,7 +121,7 @@ export const LogModal = props => {
                     <TextField className="formTitle" label="Title" margin="normal" variant="outlined"/>
                     <TextField className="formTag" label="Tag" margin="normal" variant="outlined" placeholder='eg. Redux'/>
                     <TextField className='formText' id="outlined-multiline-static" label="write here" rows="5" margin="normal" variant="outlined" multiline />
-                    <div id='buttons'>
+                    <div id='modalButtons'>
                         <Button className='formBtn' variant='outlined' color='primary'>Add New</Button>
                         <Button onClick={handleClose} className='closeBtn' variant='outlined' color='default'>cancel</Button>
                     </div>

@@ -31,6 +31,16 @@ body {
     color: #3C649D;
 }
 
+#addNewTask, #addNewBlocker {
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas: 
+        "modal"
+        "title"
+        "btn"
+}
+
 #statList {
     display: block;
     margin-top: 3px;
@@ -153,6 +163,7 @@ body {
     justify-content: space-around;
     align-items: center;
 }
+
 
 #projButtons button {
     padding: 5px;

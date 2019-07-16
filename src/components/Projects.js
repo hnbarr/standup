@@ -95,12 +95,12 @@ export const ProjectModal = props => {
         <div>
             <button onClick={handleOpen} className='addBtn'><i className="fas fa-plus-circle fa-2x"></i> </button>
             <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={open} onClose={handleClose}>
-                <div id='addNewProject' className={classes.paper}>
+                <div id='addNewBlocker' className={classes.paper}>
                     <Typography id='modalName' color='primary'> add a new project</Typography>
                     <TextField className="formTitle" label="title" margin="normal" variant="outlined"/>
                     <TextField className="formTag" label="deadline" margin="normal" variant="outlined" placeholder='mm/dd/yyyy'/>
                     <TextField className='formText' id="outlined-multiline-static" label="description" rows="5" margin="normal" variant="outlined" multiline />
-                    <div id='buttons'>
+                    <div id='modalButtons'>
                         <Button className='formBtn' variant='outlined' color='primary'>Add New</Button>
                         <Button onClick={handleClose} className='closeBtn' variant='outlined'>cancel</Button>
                     </div>

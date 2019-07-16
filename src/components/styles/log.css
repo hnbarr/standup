@@ -40,7 +40,7 @@
     height: 50px;
 }
 
-#buttons {
+#modalButtons {
     grid-area: btn;
     display: flex;
     justify-content: space-around;
@@ -57,7 +57,7 @@
     grid-area: form;
     padding: 20px;
     display: grid;
-    grid-template-rows: 1fr 2fr 2fr 3fr 2fr;
+    grid-template-rows: 1fr 2fr 2fr 3fr 1fr;
     grid-template-areas: 
         "modal"
         "title"
@@ -93,11 +93,6 @@
     align-items: center;
     border-bottom: 1px dashed #E6C400;
 }
-
-/* .fas:hover {
-    cursor: pointer;
-    color: #4456B7;
-} */
 
 .logItem {
     border-left: 1px solid #4456B7;

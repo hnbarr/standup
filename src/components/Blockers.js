@@ -53,9 +53,10 @@ export const BlockerModal = props => {
       paper: {
         position: 'absolute',
         top: '100px',
-        left: '250px',
+        left: '300px',
         width: '500px',
         height: '300px',
+        margin: '0 auto',
         [theme.breakpoints.down('sm')]: {
             top: '80px',
             left: '100px',
@@ -64,7 +65,8 @@ export const BlockerModal = props => {
         [theme.breakpoints.down('xs')]: {
             top: '50px',
             left: '50px',
-            width: '300px'
+            width: '300px',
+            height: '250px',
         },
         backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
@@ -87,10 +89,10 @@ export const BlockerModal = props => {
         <div>
             <button onClick={handleOpen} className='addBtn'><i className="fas fa-plus-circle fa-2x"></i> </button>
             <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={open} onClose={handleClose}>
-                <div id='addNewProject' className={classes.paper}>
+                <div id='addNewBlocker' className={classes.paper}>
                     <Typography id='modalName' color='primary'> what's getting in your way?</Typography>
                     <TextField className="formTitle" label="blocker" placeholder='eg. hiding connection string'margin="normal" variant="outlined"/>
-                    <div id='buttons'>
+                    <div id='modalButtons'>
                         <Button className='formBtn' variant='outlined' color='primary'>add new</Button>
                         <Button onClick={handleClose} className='closeBtn' variant='outlined'>cancel</Button>
                     </div>
