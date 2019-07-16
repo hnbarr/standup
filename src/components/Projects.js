@@ -95,7 +95,7 @@ export const ProjectModal = props => {
         <div>
             <button onClick={handleOpen} className='addBtn'><i className="fas fa-plus-circle fa-2x"></i> </button>
             <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={open} onClose={handleClose}>
-                <div id='addNewBlocker' className={classes.paper}>
+                <div id='addNewProject' className={classes.paper}>
                     <Typography id='modalName' color='primary'> add a new project</Typography>
                     <TextField className="formTitle" label="title" margin="normal" variant="outlined"/>
                     <TextField className="formTag" label="deadline" margin="normal" variant="outlined" placeholder='mm/dd/yyyy'/>
