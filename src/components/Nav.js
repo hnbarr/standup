@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
 const Nav = props => {
-    const DATE = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+    const DATE = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     return (
         <div id='nav'>
             <div id='avatar'> 

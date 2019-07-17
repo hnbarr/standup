@@ -15,8 +15,8 @@ const Log = props => {
                     <LogModal />
                 </div>
                 <form id='search'>
-                    <TextField id="searchTag" variant='outlined' label="search" placeholder='eg. mongo'/>
-                    <Button id='searchBtn' color='primary' type='submit' variant='outlined'>go</Button>
+                    <TextField id="searchTag" label="search" placeholder='eg. mongo'/>
+                    <Button id='searchBtn' color='primary' type='submit'>go</Button>
                 </form>
                 <div id='logList'>
                     <LogListItem title='thinking of changing to bootstrap' date='04-20-2019' tag='styles' />
