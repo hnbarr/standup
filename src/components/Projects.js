@@ -13,6 +13,10 @@ const Projects = props => {
                 <ProjectModal />
             </div>
             <div id='projectList'>
+            <form id='search'>
+                <TextField id="searchTag" label="search" placeholder='eg. crud'/>
+                <Button id='searchBtn' color='primary' type='submit'>go</Button>
+            </form>
                 <Project title={"trails n' tails"} logs={'5'} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
                 <Project title={'standup'} logs={'3'} description={'CRUD Application'} deadline={'08-10-2019'}/>
                 <Project title={'testApp'} logs={'7'} description={'testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll '} deadline={'10-10-2019'}/>
