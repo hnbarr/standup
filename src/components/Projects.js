@@ -12,11 +12,11 @@ const Projects = props => {
                 <Typography variant="subtitle1" color='inherit'> <i id='iconP' className="fas fa-project-diagram"></i> Projects </Typography>
                 <ProjectModal />
             </div>
-            <div id='projectList'>
             <form id='search'>
                 <TextField id="searchBar" color='primary' label="search" placeholder='eg. crud'/>
                 <Button id='searchBtn' color='primary' type='submit' variant='outlined' >go</Button>
             </form>
+            <div id='projectList'>
                 <Project title={"trails n' tails"} logs={'5'} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
                 <Project title={'standup'} logs={'3'} description={'CRUD Application'} deadline={'08-10-2019'}/>
                 <Project title={'testApp'} logs={'7'} description={'testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll '} deadline={'10-10-2019'}/>

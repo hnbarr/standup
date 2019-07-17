@@ -123,11 +123,19 @@ body {
             "nav nav"
             "tasks tasks"
             "stats projects"
-            "blockers blockers";
+            "blockers projects";
     }
 
-    #stats, #projects {
+    #stats {
         height: 250px;
+    }
+
+    #projects {
+        height: 450px;
+    }
+
+    #projectList {
+        height: 350px !important;
     }
 
     #nav {
@@ -154,7 +162,7 @@ body {
     }
   }
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 600px) {
       body {
           overflow: scroll;
       }
