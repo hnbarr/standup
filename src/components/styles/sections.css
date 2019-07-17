@@ -138,6 +138,13 @@ body {
     overflow: scroll;
 }
 
+#projectList #search {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 #projTitle {
     grid-area: deets;
     padding-top: 5px;
