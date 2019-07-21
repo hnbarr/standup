@@ -12,13 +12,6 @@ export function listTasks (tasks){
     }
 }
 
-export function showTask (task){
-    return {
-        type: 'SHOW_TASK',
-        value: task
-    }
-}
-
 export function updateTask (task){
     return {
         type: 'UPDATE_TASK',

@@ -1,32 +1,32 @@
-export function createproject (project){
+export function createProject (project){
     return {
         type: 'CREATE_PROJECT',
         value: project
     }
 }
 
-export function listprojects (projects){
+export function listProjects (projects){
     return {
         type: 'LIST_PROJECTS',
         value: projects
     }
 }
 
-export function showproject (project){
+export function showProject (project){
     return {
         type: 'SHOW_PROJECT',
         value: project
     }
 }
 
-export function updateproject (project){
+export function updateProject (project){
     return {
         type: 'UPDATE_PROJECT',
-        value: project
+        value: project,
     }
 }
 
-export function deleteproject (project){
+export function deleteProject (project){
     return {
         type: 'DELETE_PROJECT',
         value: project

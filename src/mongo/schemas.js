@@ -9,8 +9,8 @@ const Projects = new Schema ({
 
 const Logs = new Schema ({
     title: String,
-    description: String,
     tag: String,
+    description: String,
     date: Date
 })
 
@@ -23,6 +23,7 @@ const Blockers = new Schema ({
     task: String,
     date: Date
 })
+
 module.exports = {
     Projects,
     Logs,

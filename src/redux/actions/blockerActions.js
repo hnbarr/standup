@@ -12,13 +12,6 @@ export function listBlockers (blockers){
     }
 }
 
-export function showBlocker (blocker){
-    return {
-        type: 'SHOW_BLOCKER',
-        value: blocker
-    }
-}
-
 export function updateBlocker (blocker){
     return {
         type: 'UPDATE_BLOCKER',

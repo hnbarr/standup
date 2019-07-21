@@ -14,6 +14,8 @@ const projects = ( state = [], action ) => {
             const index = newState.findIndex(each => each.title === action.value)
             index > -1 && newState.splice(index, 1)
             return newState
+        default: 
+            return [ ...state]
     }
 }
 
@@ -31,6 +33,8 @@ const logs = ( state = [], action ) => {
             const index = newState.findIndex(each => each.title === action.value)
             index > -1 && newState.splice(index, 1)
             return newState
+        default: 
+            return [ ...state]
     }
 }
 
@@ -48,6 +52,8 @@ const tasks = ( state = [], action ) => {
             const index = newState.findIndex(each => each.task === action.value)
             index > -1 && newState.splice(index, 1)
             return newState
+        default: 
+            return [ ...state]
     }
 }
 
@@ -65,6 +71,8 @@ const blockers = ( state = [], action ) => {
             const index = newState.findIndex(each => each.title === action.value)
             index > -1 && newState.splice(index, 1)
             return newState
+        default: 
+            return [ ...state]
     }
 }
 
