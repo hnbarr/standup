@@ -6,14 +6,17 @@ module.exports.list = (req, res) => {
     })
 }
 
+// need to hold onto log id and project id to be able to be efficient
+
 module.exports.show = (req, res)=>{
-    ProjectsModel.findById(req.params.id).exec().then(log =>{
+    LogsModel.findById(req.params.id).exec().then(log =>{
         return res.json(log)
     })
 }
 
 module.exports.create = (req, res)=>{
     const l = new LogsModel({
+        projectId: req.body.projectId,
         title: req.body.title,
         tag: req.body.tag,
         description: req.body.description,

@@ -16,7 +16,8 @@ module.exports.create = (req, res)=>{
     const p = new ProjectsModel({
         title: req.body.title,
         description: req.body.description,
-        deadline: req.body.deadline
+        deadline: req.body.deadline,
+        logs: req.body.logs
     });
     p.save().then(savedProject => {
         return res.json(savedProject)
