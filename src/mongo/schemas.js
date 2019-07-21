@@ -4,10 +4,11 @@ const Schema = mongoose.Schema
 const Projects = new Schema ({
     title: String,
     description: String,
-    deadline: Date
+    deadline: Date,
 })
 
 const Logs = new Schema ({
+    projectId: String,
     title: String,
     tag: String,
     description: String,
@@ -20,7 +21,7 @@ const Tasks = new Schema ({
 })
 
 const Blockers = new Schema ({
-    task: String,
+    blocker: String,
     date: Date
 })
 
