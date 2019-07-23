@@ -108,17 +108,22 @@ export const LogModal = props => {
 
     const classes = useStyles();
 
+
     const handleOpen = () => {
       setOpen(true);
     };
   
     const handleClose = () => {
       setOpen(false);
+      setNewTag('')
+      setNewText('')
+      setNewTitle('')
     };
 
-    // const handleSubmit = () => {
-    //     console.log('text: ', text, "title: ", title, 'tag: ', tag)
-    // }
+    const handleSubmit = () => {
+        console.log('text: ', text, "title: ", title, 'tag: ', tag)
+        handleClose()
+    }
     
 
     return (
@@ -131,7 +136,7 @@ export const LogModal = props => {
                     <TextField onChange={e => setNewTag(e.target.value)} value={tag} name='tag' className="formTag" label="Tag" margin="normal" variant="outlined" placeholder='eg. Redux'/>
                     <TextField onChange={e => setNewText(e.target.value)} value={text} name='text' className='formText' id="outlined-multiline-static" label="write here" rows="5" margin="normal" variant="outlined" multiline />
                     <div id='modalButtons'>
-                        <Button onClick={console.log(text, title, tag)} className='formBtn' variant='outlined' color='primary'>Add New</Button>
+                        <Button onClick={handleSubmit} className='formBtn' variant='outlined' color='primary'>Add New</Button>
                         <Button onClick={handleClose} className='closeBtn' variant='outlined' color='default'>cancel</Button>
                     </div>
                 </form>
