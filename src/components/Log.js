@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles/log.css'
 import Nav from './Nav'
+import { useState } from 'react'
 import { TextField, Button, Modal, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 // import PropTypes from 'prop-types'
@@ -76,7 +77,10 @@ export const LogPreview = props => {
 }
 
 export const LogModal = props => { 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [title, setNewTitle] = useState('');
+    const [tag, setNewTag] = useState('');
+    const [text, setNewText] = useState('');
     
       const useStyles = makeStyles(theme => ({
         paper: {
@@ -111,21 +115,26 @@ export const LogModal = props => {
     const handleClose = () => {
       setOpen(false);
     };
+
+    // const handleSubmit = () => {
+    //     console.log('text: ', text, "title: ", title, 'tag: ', tag)
+    // }
     
+
     return (
         <div>
             <button onClick={handleOpen} className='addBtn' ><i className="fas fa-plus-circle fa-2x"></i> </button>
             <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={open} onClose={handleClose}>
-                <div id='addNewLog' className={classes.paper}>
+                <form id='addNewLog' className={classes.paper}>
                     <Typography id='modalName' color='primary'> add a new log</Typography>
-                    <TextField className="formTitle" label="Title" margin="normal" variant="outlined"/>
-                    <TextField className="formTag" label="Tag" margin="normal" variant="outlined" placeholder='eg. Redux'/>
-                    <TextField className='formText' id="outlined-multiline-static" label="write here" rows="5" margin="normal" variant="outlined" multiline />
+                    <TextField onChange={e => setNewTitle(e.target.value)} value={title} name='title' className="formTitle" label="Title" margin="normal" variant="outlined"/>
+                    <TextField onChange={e => setNewTag(e.target.value)} value={tag} name='tag' className="formTag" label="Tag" margin="normal" variant="outlined" placeholder='eg. Redux'/>
+                    <TextField onChange={e => setNewText(e.target.value)} value={text} name='text' className='formText' id="outlined-multiline-static" label="write here" rows="5" margin="normal" variant="outlined" multiline />
                     <div id='modalButtons'>
-                        <Button className='formBtn' variant='outlined' color='primary'>Add New</Button>
+                        <Button onClick={console.log(text, title, tag)} className='formBtn' variant='outlined' color='primary'>Add New</Button>
                         <Button onClick={handleClose} className='closeBtn' variant='outlined' color='default'>cancel</Button>
                     </div>
-                </div>
+                </form>
             </Modal>
         </div>
     )

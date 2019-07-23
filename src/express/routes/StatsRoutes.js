@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { list, update } = require('../controllers/logsControllers');
+const { list, update, reset } = require('../controllers/logsControllers');
 
-router.get("/api/tasks", list);
-router.put("/api/tasks/:id", update);
+router.get("/api/stats", list);
+router.put("/api/stats/:id", update);
+router.put("/api/stats/:id", reset)
 
 
 module.exports = router;

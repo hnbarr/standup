@@ -91,7 +91,7 @@ export const BlockerModal = props => {
             <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={open} onClose={handleClose}>
                 <div id='addNewBlocker' className={classes.paper}>
                     <Typography id='modalName' color='primary'> what's getting in your way?</Typography>
-                    <TextField className="formTitle" label="blocker" placeholder='eg. hiding connection string'margin="normal" variant="outlined"/>
+                    <TextField name='blocker' className="formTitle" label="blocker" placeholder='eg. hiding connection string'margin="normal" variant="outlined"/>
                     <div id='modalButtons'>
                         <Button className='formBtn' variant='outlined' color='primary'>add new</Button>
                         <Button onClick={handleClose} className='closeBtn' variant='outlined'>cancel</Button>
