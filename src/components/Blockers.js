@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import { Typography, Checkbox, TextField, Button, Modal } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import './styles/sections.css'
@@ -48,6 +49,7 @@ export const Blocker = props => {
 
 export const BlockerModal = props => {
     const [open, setOpen] = React.useState(false);
+    const [blocker, setNewBlocker] = useState('')
     
     const useStyles = makeStyles(theme => ({
       paper: {
@@ -84,19 +86,25 @@ export const BlockerModal = props => {
 
   const handleClose = () => {
     setOpen(false);
+    setNewBlocker('')
   };
+
+  const handleSubmit = () => {
+    console.log('new blocker: ', blocker)
+    handleClose()
+  }
     return (
         <div>
             <button onClick={handleOpen} className='addBtn'><i className="fas fa-plus-circle fa-2x"></i> </button>
             <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={open} onClose={handleClose}>
-                <div id='addNewBlocker' className={classes.paper}>
+                <form id='addNewBlocker' className={classes.paper}>
                     <Typography id='modalName' color='primary'> what's getting in your way?</Typography>
-                    <TextField name='blocker' className="formTitle" label="blocker" placeholder='eg. hiding connection string'margin="normal" variant="outlined"/>
+                    <TextField onChange={e => setNewBlocker(e.target.value)} value={blocker} name='blocker' className="formTitle" label="blocker" placeholder='eg. hiding connection string'margin="normal" variant="outlined"/>
                     <div id='modalButtons'>
-                        <Button className='formBtn' variant='outlined' color='primary'>add new</Button>
+                        <Button onClick={handleSubmit} className='formBtn' variant='outlined' color='primary'>add new</Button>
                         <Button onClick={handleClose} className='closeBtn' variant='outlined'>cancel</Button>
                     </div>
-                </div>
+                </form>
             </Modal>
         </div>
     )

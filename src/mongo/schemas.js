@@ -25,9 +25,14 @@ const Blockers = new Schema ({
     date: Date
 })
 
+const Stats = new Schema ({
+    count: Number
+})
+
 module.exports = {
     Projects,
     Logs,
     Tasks,
-    Blockers
+    Blockers,
+    Stats
 }

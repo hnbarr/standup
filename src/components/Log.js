@@ -121,7 +121,7 @@ export const LogModal = props => {
     };
 
     const handleSubmit = () => {
-        console.log('text: ', text, "title: ", title, 'tag: ', tag)
+        console.log('new text: ', text, "new title: ", title, 'new tag: ', tag)
         handleClose()
     }
     

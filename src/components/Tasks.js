@@ -3,6 +3,7 @@ import React from 'react'
 import { Typography, Checkbox, TextField, Button, Modal } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import './styles/sections.css'
+import { useState } from 'react'
 // import TaskModal from './Modals'
 
 const Tasks = props => {
@@ -51,7 +52,8 @@ export const Task = props => {
 }
 
 export const TaskModal = props => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [task, setNewTask] = useState('');
     
     const useStyles = makeStyles(theme => ({
       paper: {
@@ -87,20 +89,26 @@ export const TaskModal = props => {
 
   const handleClose = () => {
     setOpen(false);
+    setNewTask('');
   };
+
+  const handleSubmit = () => {
+    console.log('new task: ', task,)
+    handleClose()
+  }
   
     return (
         <div>
             <button onClick={handleOpen} className='addBtn'><i className="fas fa-plus-circle fa-2x"></i> </button>
             <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={open} onClose={handleClose}>
-                <div id='addNewTask' className={classes.paper}>
+                <form id='addNewTask' className={classes.paper}>
                     <Typography id='modalName' color='primary'> what else to do today?</Typography>
-                    <TextField className="formTitle" label="task"  placeholder='eg. finish responsive button' margin="normal" variant="outlined"/>
+                    <TextField  onChange={e => setNewTask(e.target.value)} className="formTitle" name='task' value={task} label="task"  placeholder='eg. finish responsive button' margin="normal" variant="outlined"/>
                     <div id='modalButtons'>
-                        <Button className='formBtn' variant='outlined' color='primary'>add new</Button>
+                        <Button onClick={handleSubmit} className='formBtn' variant='outlined' color='primary'>add new</Button>
                         <Button onClick={handleClose} className='closeBtn' variant='outlined'>cancel</Button>
                     </div>
-                </div>
+                </form>
             </Modal>
         </div>
     )

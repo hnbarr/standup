@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 // import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, TextField, Button, Modal } from '@material-ui/core'
@@ -60,7 +61,10 @@ export const Project = props => {
 }
 
 export const ProjectModal = props => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [description, setNewDescription] = useState('')
+    const [title, setNewTitle] = useState('');
+    const [deadline, setNewDeadline] = useState('');
     
       const useStyles = makeStyles(theme => ({
         paper: {
@@ -94,21 +98,30 @@ export const ProjectModal = props => {
   
     const handleClose = () => {
       setOpen(false);
+      setNewTitle('')
+      setNewDeadline('')
+      setNewDescription('')
     };
+
+    const handleSubmit = () => {
+        console.log('new title: ', title, 'new description: ', description, 'new deadline: ', deadline)
+        handleClose()
+    }
+
     return (
         <div>
             <button onClick={handleOpen} className='addBtn'><i className="fas fa-plus-circle fa-2x"></i> </button>
             <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={open} onClose={handleClose}>
-                <div id='addNewProject' className={classes.paper}>
+                <form id='addNewProject' className={classes.paper}>
                     <Typography id='modalName' color='primary'> add a new project</Typography>
-                    <TextField className="formTitle" label="title" margin="normal" variant="outlined"/>
-                    <TextField className="formTag" label="deadline" margin="normal" variant="outlined" placeholder='mm/dd/yyyy'/>
-                    <TextField className='formText' id="outlined-multiline-static" label="description" rows="5" margin="normal" variant="outlined" multiline />
+                    <TextField onChange={e => setNewTitle(e.target.value)} value={title} name='title' className="formTitle" label="title" margin="normal" variant="outlined"/>
+                    <TextField onChange={e => setNewDeadline(e.target.value)} value={deadline} name='deadline' className="formTag" label="deadline" margin="normal" variant="outlined" placeholder='mm/dd/yyyy'/>
+                    <TextField onChange={e => setNewDescription(e.target.value)} value={description} name='description' className='formText' id="outlined-multiline-static" label="description" rows="5" margin="normal" variant="outlined" multiline />
                     <div id='modalButtons'>
-                        <Button className='formBtn' variant='outlined' color='primary'>Add New</Button>
+                        <Button onClick={handleSubmit} className='formBtn' variant='outlined' color='primary'>Add New</Button>
                         <Button onClick={handleClose} className='closeBtn' variant='outlined'>cancel</Button>
                     </div>
-                </div>
+                </form>
             </Modal>
         </div>
     )
