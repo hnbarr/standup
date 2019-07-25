@@ -1,4 +1,3 @@
-// mapDispatchToProps & mapStateToProps
 import Blockers from "../components/Blockers";
 import { connect } from "react-redux";
 import { listBlockers, createBlocker, updateBlocker, deleteBlocker } from '../redux/actions/blockerActions'

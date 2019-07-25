@@ -14,7 +14,7 @@ const Tasks = props => {
                 <TaskModal />
             </div>
             <div id='taskList'>
-                <Task title={'item 1'}/>
+                {/* <Task title={'item 1'}/>
                 <Task title={'item 2'}/>
                 <Task title={'item 3'}/>
                 <Task title={'item 4'}/>
@@ -22,7 +22,7 @@ const Tasks = props => {
                 <Task title={'item 6'}/>
                 <Task title={'item 7'}/>
                 <Task title={'item 8'}/>
-                {/* <Task title={'item 9'}/>
+                <Task title={'item 9'}/>
                 <Task title={'item 10'}/>
                 <Task title={'item 11'}/> */}
             </div>          
@@ -58,18 +58,21 @@ export const TaskModal = props => {
     const useStyles = makeStyles(theme => ({
       paper: {
         position: 'absolute',
-        top: '100px',
-        left: '300px',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
         width: '500px',
         height: '300px',
         [theme.breakpoints.down('sm')]: {
-            top: '80px',
-            left: '150px',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
             width: '400px'
         },
         [theme.breakpoints.down('xs')]: {
-            top: '50px',
-            left: '40px',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
             width: '300px',
             height: '250px',
         },
@@ -101,11 +104,11 @@ export const TaskModal = props => {
         <div>
             <button onClick={handleOpen} className='addBtn'><i className="fas fa-plus-circle fa-2x"></i> </button>
             <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={open} onClose={handleClose}>
-                <form id='addNewTask' className={classes.paper}>
+                <form id='addNewTask' className={classes.paper} onSubmit={handleSubmit}>
                     <Typography id='modalName' color='primary'> what else to do today?</Typography>
                     <TextField  onChange={e => setNewTask(e.target.value)} className="formTitle" name='task' value={task} label="task"  placeholder='eg. finish responsive button' margin="normal" variant="outlined"/>
                     <div id='modalButtons'>
-                        <Button onClick={handleSubmit} className='formBtn' variant='outlined' color='primary'>add new</Button>
+                        <Button onClick={handleSubmit} type='submit' className='formBtn' variant='outlined' color='primary'>add new</Button>
                         <Button onClick={handleClose} className='closeBtn' variant='outlined'>cancel</Button>
                     </div>
                 </form>

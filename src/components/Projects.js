@@ -18,10 +18,10 @@ const Projects = props => {
                 <Button id='searchBtn' color='primary' type='submit' variant='outlined' >go</Button>
             </form>
             <div id='projectList'>
-                <Project title={"trails n' tails"} logs={'5'} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
+                {/* <Project title={"trails n' tails"} logs={'5'} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
                 <Project title={'standup'} logs={'3'} description={'CRUD Application'} deadline={'08-10-2019'}/>
                 <Project title={'testApp'} logs={'7'} description={'testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll testing scroll '} deadline={'10-10-2019'}/>
-                <Project title={"trails n' tails"} logs={'2'} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/>
+                <Project title={"trails n' tails"} logs={'2'} description={'dog friendly trail finding app'} deadline={'12-12-2019'}/> */}
             </div>        
         </div>
     )
@@ -69,17 +69,20 @@ export const ProjectModal = props => {
       const useStyles = makeStyles(theme => ({
         paper: {
           position: 'absolute',
-          top: '100px',
-          left: '300px',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
           width: '500px',
           [theme.breakpoints.down('sm')]: {
-            top: '80px',
-            left: '150px',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
             width: '400px'
           },
           [theme.breakpoints.down('xs')]: {
-            top: '50px',
-            left: '40px',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
             width: '300px'
           },
           backgroundColor: theme.palette.background.paper,
@@ -112,13 +115,13 @@ export const ProjectModal = props => {
         <div>
             <button onClick={handleOpen} className='addBtn'><i className="fas fa-plus-circle fa-2x"></i> </button>
             <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={open} onClose={handleClose}>
-                <form id='addNewProject' className={classes.paper}>
+                <form id='addNewProject' className={classes.paper} onSubmit={handleSubmit}>
                     <Typography id='modalName' color='primary'> add a new project</Typography>
                     <TextField onChange={e => setNewTitle(e.target.value)} value={title} name='title' className="formTitle" label="title" margin="normal" variant="outlined"/>
                     <TextField onChange={e => setNewDeadline(e.target.value)} value={deadline} name='deadline' className="formTag" label="deadline" margin="normal" variant="outlined" placeholder='mm/dd/yyyy'/>
                     <TextField onChange={e => setNewDescription(e.target.value)} value={description} name='description' className='formText' id="outlined-multiline-static" label="description" rows="5" margin="normal" variant="outlined" multiline />
                     <div id='modalButtons'>
-                        <Button onClick={handleSubmit} className='formBtn' variant='outlined' color='primary'>Add New</Button>
+                        <Button onClick={handleSubmit} type='submit' className='formBtn' variant='outlined' color='primary'>Add New</Button>
                         <Button onClick={handleClose} className='closeBtn' variant='outlined'>cancel</Button>
                     </div>
                 </form>
