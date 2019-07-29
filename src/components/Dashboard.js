@@ -1,9 +1,9 @@
 import React from 'react'
 import './styles/dash.css'
-import Tasks from './Tasks'
-import Blockers from './Blockers'
+import TaskContainer from '../containers/TaskContainer'
+import BlockerContainer from '../containers/BlockerContainer'
 import Stats from './Stats'
-import Projects from './Projects'
+import ProjectContainer from '../containers/ProjectContainer'
 import Nav from './Nav'
 // import PropTypes from 'prop-types'
 
@@ -22,10 +22,10 @@ const Dashboard = props => {
             <div className='dashboard'>
               <ThemeProvider theme={theme}>
                 <Nav/>
-                <Projects />
+                <ProjectContainer />
                 <Stats />
-                <Tasks />
-                <Blockers />
+                <TaskContainer />
+                <BlockerContainer />
               </ThemeProvider>
             </div>
         )

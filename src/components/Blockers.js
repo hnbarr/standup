@@ -3,10 +3,25 @@ import { useState } from 'react'
 import { Typography, Checkbox, TextField, Button, Modal } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import './styles/sections.css'
+import { createBlocker } from '../redux/actions/blockerActions';
 
 // import PropTypes from 'prop-types'
 
-const Blockers = props => {
+class Blockers extends React.Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            title: '' 
+        }
+    }
+
+    componentDidMount(){
+        
+    }
+
+    render(){
+        console.log(this.props)
     return (
         <div className='component' id='blockers'>
                 <div className='toolbar'>
@@ -14,10 +29,9 @@ const Blockers = props => {
                     <BlockerModal />
                 </div>
                 <div id='blockerList'>
-                    {/* map through blockers here */}
                 </div>     
         </div>
-    )
+    )}
 }
 
 export const BlockerModal = props => {
@@ -30,22 +44,16 @@ export const BlockerModal = props => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        // top: '100px',
-        // left: '300px',
         width: '500px',
         height: '300px',
         margin: '0 auto',
         [theme.breakpoints.down('sm')]: {
-            // top: '80px',
-            // left: '100px',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: '400px'
         },
         [theme.breakpoints.down('xs')]: {
-            // top: '50px',
-            // left: '50px',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
@@ -71,8 +79,10 @@ export const BlockerModal = props => {
     setNewBlocker('')
   };
 
-  const handleSubmit = () => { 
-    console.log('new blocker: ', blocker)
+  const handleSubmit = (e) => { 
+    e.preventDefault()
+    console.log('new blocker onSubmit: ', blocker)
+    createBlocker(blocker)
     handleClose()
   }
     return (
@@ -92,13 +102,14 @@ export const BlockerModal = props => {
     )
 }
 
+
 export const Blocker = props => {
     const handleEdit = (e) => {
-        console.log(e.target)
+        console.log(e.target, 'editing')
     }
 
     const handleCheck = (e) => {
-        console.log(e.target.value)
+        console.log(e.target.value, 'checkd')
     }
     return (
         <div className='newItem' id='newBlocker'>
@@ -112,8 +123,8 @@ export const Blocker = props => {
 }
 
 
-Blockers.propTypes = {
-    // title: String
-}
+// Blockers.propTypes = {
+//     title: String
+// }
 
 export default Blockers

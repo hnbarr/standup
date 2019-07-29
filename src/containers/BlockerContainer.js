@@ -10,10 +10,10 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      updateBlocker: () => dispatch(updateBlocker()),
+      updateBlocker: (blocker) => dispatch(updateBlocker(blocker)),
       listBlockers: () => dispatch(listBlockers()),
-      createBlocker: () => dispatch(createBlocker()),
-      deleteBlocker: () => dispatch(deleteBlocker())
+      createBlocker: (blocker) => dispatch(createBlocker(blocker)),
+      deleteBlocker: (blocker) => dispatch(deleteBlocker(blocker))
     }
   }
 

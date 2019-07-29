@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography, TextField, Button, Modal } from '@material-ui/core'
 import './styles/sections.css'
 import { Link } from 'react-router-dom'
+// import { createProject } from '../redux/actions/projectActions';
+
 
 const Projects = props => {
     return (
@@ -108,6 +110,7 @@ export const ProjectModal = props => {
 
     const handleSubmit = () => {
         console.log('new title: ', title, 'new description: ', description, 'new deadline: ', deadline)
+        // createProject(title, description, deadline)
         handleClose()
     }
 
