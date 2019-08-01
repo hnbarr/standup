@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { useState } from 'react'
 import { Typography, Checkbox, TextField, Button, Modal } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles';
 import './styles/sections.css'
@@ -45,11 +44,14 @@ class BlockerModal extends Component {
 
     setNewBlocker = (value) => this.setState({ blocker: value })
 
+    handleClose = () => {this.setState({blocker: ''})};
+
     handleSubmit = (e) => { 
         e.preventDefault()
         console.log('new blocker onSubmit: ', this.state.blocker)
         this.props.createBlocker(this.state.blocker)
         this.toggleOpen()
+        this.handleClose()
     }
 
     render() {
@@ -93,7 +95,7 @@ const Blocker = props => {
 }
 
 const Blockers = (props) => {
-    console.log('this props', props)
+    console.log('blockers props: ', props)
     return (
         <div className='component' id='blockers'>
                 <div className='toolbar'>

@@ -1,4 +1,3 @@
-// mapDispatchToProps & mapStateToProps
 import Projects from "../components/Projects";
 import { connect } from "react-redux";
 import { listProjects, createProject, updateProject, showProject, deleteProject } from '../redux/actions/projectActions'
@@ -12,9 +11,9 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      updateProject: () => dispatch(updateProject()),
+      updateProject: (project) => dispatch(updateProject(project)),
       listProjects: () => dispatch(listProjects()),
-      showProject: () => dispatch(showProject()),
+      showProject: (project) => dispatch(showProject(project)),
       createProject: (project) => dispatch(createProject(project)),
       deleteProject: (project) => dispatch(deleteProject(project))
     }

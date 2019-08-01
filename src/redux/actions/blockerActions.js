@@ -6,10 +6,9 @@ export function handleErrors(response){
 }
 export function createBlocker(blocker){
     // debugger;
-    console.log('createBlocker in actions:', blocker)
+    // console.log('createBlocker in actions:', blocker);
     // return (dispatch) => {
-    //     debugger;
-    //     return fetch(`/api/blockers`, {
+    //     fetch(`/api/blockers`, {
     //       method: 'POST',
     //       headers: {'Content-Type': 'application/json'},
     //       body: JSON.stringify(blocker)
@@ -23,7 +22,7 @@ export function createBlocker(blocker){
     //         value: blocker
     //     })
     // })
-    //     // .then(() => {dispatch(listBlockers())})
+    //     .then(() => {dispatch(listBlockers())})
     // };
     return {
         type: "CREATE_BLOCKER",
@@ -64,40 +63,3 @@ export function deleteBlocker(blocker){
         value: blocker
     }
 }
-
-
-
-// export const FETCH_BLOCKERDATA_BEGIN = "FETCH_BLOCKERDATA_BEGIN";
-// export const FETCH_BLOCKERDATA_SUCCESS = "FETCH_BLOCKERDATA_SUCCESS";
-// export const FETCH_BLOCKERDATA_FAILURE = "FETCH_BLOCKERDATA_FAILURE";
-
-// export const fetchBlockerDataBegin = () =>({
-//     type: FETCH_BLOCKERDATA_BEGIN
-// });
-
-// export const fetchBlockerDataSuccess = blockers =>({
-//     type: FETCH_BLOCKERDATA_SUCCESS,
-//     payload: { blockers }
-// });
-
-// export const fetchBlockerDataFailure = error =>({
-//     type: FETCH_BLOCKERDATA_FAILURE,
-//     payload: {error}
-// });
-
-// export const loadBlockerData = () => {
-//     return dispatch => {
-//         dispatch(fetchBlockerDataBegin());
-//         return fetch(`/api/blockers`)
-//             .then(handleErrors)
-//             .then(res => res.json())
-//             .then(blockers => {
-//                     dispatch(fetchBlockerDataSuccess(blockers));
-//                     return blockers;
-//             })
-//             .catch(error => {
-//                 console.log("error:", error)
-//                 dispatch(fetchBlockerDataFailure(error))
-//             })
-//     };
-// }

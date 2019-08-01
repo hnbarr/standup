@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles';
 import { Typography, TextField, Button, Modal } from '@material-ui/core'
-import './styles/sections.css'
 import { Link } from 'react-router-dom'
+import './styles/sections.css'
 
 const styles = theme => ({
     paper: {
@@ -39,12 +39,6 @@ class ProjectModal extends Component {
         description: '',
         deadline: ''
     }
-    // const [open, setOpen] = useState(false);
-    // const [description, setNewDescription] = useState('')
-    // const [title, setNewTitle] = useState('');
-    // const [deadline, setNewDeadline] = useState('');
-
-    // const classes = useStyles();
 
     handleOpen = () => {
         this.setState({
@@ -63,12 +57,11 @@ class ProjectModal extends Component {
 
     handleSubmit = () => {
         const {title, description, deadline} = this.state
-        // console.log('new title: ', title, 'new description: ', description, 'new deadline: ', deadline)
         this.props.createProject({title, description, deadline})
         this.handleClose()
     }
 
-    handleTextChange = (e) => {
+    handleChange = (e) => {
         const newState = {...this.state}
         newState[e.target.name] = e.target.value
         this.setState(newState)
@@ -83,9 +76,9 @@ class ProjectModal extends Component {
                 <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={this.state.open} onClose={this.handleClose}>
                     <form id='addNewProject' className={classes.paper} onSubmit={this.handleSubmit}>
                         <Typography id='modalName' color='primary'> add a new project</Typography>
-                        <TextField onChange={e => this.handleTextChange(e)} value={this.state.title} name='title' className="formTitle" label="title" margin="normal" variant="outlined"/>
-                        <TextField onChange={e => this.handleTextChange(e)} value={this.state.deadline} name='deadline' className="formTag" label="deadline" margin="normal" variant="outlined" placeholder='mm/dd/yyyy'/>
-                        <TextField onChange={e => this.handleTextChange(e)} value={this.state.description} name='description' className='formText' id="outlined-multiline-static" label="description" rows="5" margin="normal" variant="outlined" multiline />
+                        <TextField onChange={e => this.handleChange(e)} value={this.state.title} name='title' className="formTitle" label="title" margin="normal" variant="outlined"/>
+                        <TextField onChange={e => this.handleChange(e)} value={this.state.deadline} name='deadline' className="formTag" label="deadline" margin="normal" variant="outlined" placeholder='mm/dd/yyyy'/>
+                        <TextField onChange={e => this.handleChange(e)} value={this.state.description} name='description' className='formText' id="outlined-multiline-static" label="description" rows="5" margin="normal" variant="outlined" multiline />
                         <div id='modalButtons'>
                             <Button onClick={this.handleSubmit} type='submit' className='formBtn' variant='outlined' color='primary'>Add New</Button>
                             <Button onClick={this.handleClose} className='closeBtn' variant='outlined'>cancel</Button>
@@ -98,6 +91,7 @@ class ProjectModal extends Component {
 }
 
 const Project = props => {
+    console.log('project props : ', props)
     const handleDelete = (e) => {
         console.log(e.target)
     }
@@ -107,24 +101,21 @@ const Project = props => {
     return (
         <div className='newItem' id='newProject'>
             <div id='projTitle'>
-                <p>{props.title}</p>
+                <p>{props.value.title}</p>
             </div>
             <div id='projDeadline'>
                 <div id='dline'>
                     <b>Deadline:</b>
-                    <p>{props.deadline}</p>
+                    <p>{props.value.deadline}</p>
                 </div>
             </div>
             <div id='projDes'>
-                <p> {props.description}</p>
+                <p> {props.value.description}</p>
             </div>
             <div id='projButtons'>
                 <Link to='./log' className='edit'>details <span>{props.logs}</span>{/*number of log list items for project*/} </Link>
-                {/* <i className="fas fa-pencil-alt fa-2x"></i> */}
                 <button onClick={handleDelete} className='trash'>delete</button>
-                {/* <i  className="fas fa-trash-alt fa-2x"></i> */}
                 <button onClick={handleSubmit} className='submit'>submit</button>
-                {/* <i className="fas fa-clipboard-check fa-2x"></i> */}
             </div>
         </div>
     )
@@ -143,7 +134,9 @@ const Projects = (props) => {
                 <Button id='searchBtn' color='primary' type='submit' variant='outlined' >go</Button>
             </form>
             <div id='projectList'>
-                {/* map here */}
+                {props.projects.map((p, i)=>{
+                    return <Project key={i} value={p}/>
+                })}
             </div>        
         </div>
     )

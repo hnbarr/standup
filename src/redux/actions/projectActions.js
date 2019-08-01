@@ -1,6 +1,4 @@
 export function createProject (project){
-    debugger
-    // console.log('createProject in actions: ', title, description, deadline)
     return {
         type: 'CREATE_PROJECT',
         value: project

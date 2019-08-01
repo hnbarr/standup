@@ -3,10 +3,5 @@ export default {
     tasks: [],
     blockers: [],
     stats: [],
-    logs: [],
-    // blockerdata: {
-    //     loading: false,
-    //     error: null,
-    //     blockers: []
-    // }
+    logs: []
 }

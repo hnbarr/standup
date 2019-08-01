@@ -1,11 +1,5 @@
 import { combineReducers } from 'redux'
 
-// import { 
-//     FETCH_BLOCKERDATA_BEGIN,
-//     FETCH_BLOCKERDATA_SUCCESS,
-//     FETCH_BLOCKERDATA_FAILURE,
-// } from '../actions/blockerActions';
-
 const stats = ( state=[], action ) => {
     switch(action.type){
         case 'LIST_STATS':
