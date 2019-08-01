@@ -4,7 +4,7 @@ import { listBlockers, createBlocker, updateBlocker, deleteBlocker } from '../re
 
 function mapStateToProps(state) {
     return {
-    blockers: state.blockers
+      blockers: state.blockers
   };
 }
 

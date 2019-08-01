@@ -5,21 +5,30 @@ export function handleErrors(response){
     return response
 }
 export function createBlocker(blocker){
+    // debugger;
     console.log('createBlocker in actions:', blocker)
-    return (dispatch) => {
-        fetch(`/api/blockers`, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(blocker)
-        })
-        .then(handleErrors)
-        .then(res => res.json())
-        .then(blocker=> dispatch({
-            type: "CREATE_BLOCKER",
-            value: blocker
-        }))
-        .then(() => {dispatch(listBlockers())})
-    };
+    // return (dispatch) => {
+    //     debugger;
+    //     return fetch(`/api/blockers`, {
+    //       method: 'POST',
+    //       headers: {'Content-Type': 'application/json'},
+    //       body: JSON.stringify(blocker)
+    //     })
+    //     // .then(handleErrors)
+    //     .then(res => res.json())
+    //     .then(blocker=>{ 
+    //         console.log('before dispatch: ') 
+    //         dispatch({
+    //         type: "CREATE_BLOCKER",
+    //         value: blocker
+    //     })
+    // })
+    //     // .then(() => {dispatch(listBlockers())})
+    // };
+    return {
+        type: "CREATE_BLOCKER",
+        value:  blocker
+    }
 }
 
 export function listBlockers(blockers) {

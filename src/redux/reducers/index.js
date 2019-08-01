@@ -76,32 +76,8 @@ const tasks = ( state = [], action ) => {
     }
 }
 
-// const blockerdata = (state = [], action) => {
-    // switch(action.type){
-    //     case FETCH_BLOCKERDATA_BEGIN:
-    //         return {
-    //             ...state,
-    //             loading: true,
-    //             error: null
-    //         };
-    //     case FETCH_BLOCKERDATA_SUCCESS:
-    //         return {
-    //             ...state,
-    //             loading: false, 
-    //             blockers: action.payload.blockers
-    //         };
-    //     case FETCH_BLOCKERDATA_FAILURE:
-    //         return {
-    //             ...state, 
-    //             loading: false,
-    //             error: action.payload.error,
-    //             blockers: []
-    //         };
-    //     default:
-    //         return state;
-    // }
-// }
 const blockers = ( state = [], action ) => {
+    // debugger;
     switch(action.type){
         case 'LIST_BLOCKERS':
             return action.value
