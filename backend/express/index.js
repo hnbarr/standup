@@ -20,15 +20,12 @@ mongoose.Promise = global.Promise;
 
 
 mongoose.connect('mongodb+srv://admin:admin@cluster0-kohaq.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
+
 app.use('/', router)
 app.use(taskRoutes)
 app.use(projectRoutes)
 app.use(logRoutes)
 app.use(blockerRoutes)
-app.get('/api/blockers', (req, res)=> {
-    console.log(req)
-    res.send(req.body)
-})
 
 
 app.get('/', (req,res)=>{

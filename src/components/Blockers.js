@@ -31,7 +31,7 @@ const styles = theme => ({
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 4),
       outline: 'none',
-    },
+    }
   });
 
 class BlockerModal extends Component {
@@ -48,7 +48,7 @@ class BlockerModal extends Component {
 
     handleSubmit = (e) => { 
         e.preventDefault()
-        console.log('new blocker onSubmit: ', this.state.blocker)
+        // console.log('new blocker onSubmit: ', this.state.blocker)
         this.props.createBlocker(this.state.blocker)
         this.toggleOpen()
         this.handleClose()
