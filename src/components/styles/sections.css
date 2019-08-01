@@ -61,7 +61,7 @@ body {
     background-color: white;
 }
 
-#newStat {
+.newStat {
     padding: 5px;
     width: 80%;
     margin: 0 auto;
@@ -70,6 +70,7 @@ body {
     justify-content: space-around;
     align-items: center;
     font-size: 18px; 
+    width: 100% !important;
 }
 
 .stat #check {
@@ -106,10 +107,6 @@ body {
     padding: 10px;
 }
 
-.newItem {
-    margin: 0 auto;
-    width: 100% !important;
-}
 
 #taskButtons, #blockerButtons  {
     width: 100px;
@@ -257,7 +254,7 @@ body {
         margin: 0 auto;
     }
 
-    #newStat p {
+    .newStat p {
         font-size: 14px;
     }
 

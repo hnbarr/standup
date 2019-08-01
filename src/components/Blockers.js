@@ -37,7 +37,8 @@ const styles = theme => ({
 class BlockerModal extends Component {
     state = {
         open: false,
-        blocker: ''
+        blocker: '',
+        checked: [] //for blockers defeated in stats
     }
 
     toggleOpen = () => this.setState({ open: !this.state.open })

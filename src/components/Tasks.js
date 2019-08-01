@@ -37,7 +37,8 @@ const styles = theme => ({
 class TaskModal extends Component {
     state = {
         open: false,
-        task: ''
+        task: '',
+        checked: []
     }
 
     toggleOpen = () => this.setState({ open: !this.state.open })

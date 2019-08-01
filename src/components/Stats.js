@@ -3,7 +3,35 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 import './styles/sections.css'
 
+export const TaskStat = props => {
+    return (
+        <div className='newStat'>
+            <p>Task Progress</p>
+            <b>{props.checked}/{props.count}</b>
+        </div>
+    )
+}
+
+export const BlockerStat = props => {
+    return (
+        <div className='newStat'>
+            <p>Blockers Defeated</p>
+            <b>{props.count}</b>
+        </div>
+    )
+}
+
+export const ProjectStat = props => {
+    return (
+        <div className='newStat'>
+            <p>Projects Submitted</p>
+            <b>{props.count}</b>
+        </div>
+    )
+}
+
 const Stats = props => {
+    console.log('stats props: ', props)
     return (
         <div className='component' id='stats'>
                 <div className='toolbar'>
@@ -11,27 +39,18 @@ const Stats = props => {
                 </div>
                 <div id='statList'>
                         <div className='stat'>
-                            <i id='trophy' className="fas fa-trophy fa-2x"></i>
-                            <Stat title={'Blockers Defeated'} count={12}/>
+                            <i id='check' className="far fa-check-circle fa-2x"></i>                            
+                            <TaskStat/>
                         </div>
                         <div className='stat'>
-                            <i id='check' className="far fa-check-circle fa-2x"></i>                            
-                            <Stat title={'Tasks Completed'} count={70}/>
+                            <i id='trophy' className="fas fa-trophy fa-2x"></i>
+                            <BlockerStat/>
                         </div>
                         <div className='stat'>
                             <i id='cheers' className="fas fa-glass-cheers fa-2x"></i>
-                            <Stat title={'Projects Submitted'} count={4}/>
+                            <ProjectStat/>
                         </div>
                 </div>       
-        </div>
-    )
-}
-
-export const Stat = props => {
-    return (
-        <div className='newItem' id='newStat'>
-            <p>{props.title}</p>
-            <b>{props.count}</b>
         </div>
     )
 }
