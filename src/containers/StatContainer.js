@@ -10,9 +10,9 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      updateStat: () => dispatch(updateStat()),
+      updateStat: (stat) => dispatch(updateStat(stat)),
       listStats: () => dispatch(listStats()),
-      deleteStat: () => dispatch(deleteStat())
+      deleteStat: (stat) => dispatch(deleteStat(stat))
     }
   }
 

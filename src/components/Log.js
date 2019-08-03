@@ -1,43 +1,93 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './styles/log.css'
 import Nav from './Nav'
-import { useState } from 'react'
 import { TextField, Button, Modal, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 // import PropTypes from 'prop-types'
 
-const Log = props => {
-    return (
-        <div id='log'>
-            <Nav id='navLog'/>
-            <div id='logLeftPane'>
-                <div id='logBar'> 
-                    <h3>project title</h3>
-                    <LogModal />
-                </div>
-                <form id='search'>
-                    <TextField id="searchTag" label="search" placeholder='eg. mongo'/>
-                    <Button id='searchBtn' color='primary' type='submit'>go</Button>
-                </form>
-                <div id='logList'>
-                    <LogListItem title='thinking of changing to bootstrap' date='04-20-2019' tag='styles' />
-                    <LogListItem title='easy router setup' date='02-15-2019' tag='react router' />
-                    <LogListItem title='getting mongo connected' date='04-15-2019' tag='mongo' />
-                    <LogListItem title='deploy app test' date='04-20-2019' tag='heroku' />
-                    <LogListItem title='starting project: the plan' date='02-15-2019' tag='start' />
-                    <LogListItem title='easy router setup' date='02-15-2019' tag='react router' />
-                    <LogListItem title='getting mongo connected' date='04-15-2019' tag='mongo' />
-                </div>
-            </div>
+const styles = theme => ({
+    paper: {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: '500px',
+      [theme.breakpoints.down('sm')]: {
+        width: '400px'
+      },
+      [theme.breakpoints.down('xs')]: {
+        width: '300px'
+      },
+      backgroundColor: theme.palette.background.paper,
+      border: '2px solid #000',
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 4),
+      outline: 'none',
+    },
+  });
 
-            <div id='logRightPane'>
-                <LogPreview />
+
+  class LogModal extends Component { 
+    state = {
+        open: false,
+        title: '',
+        tag: '',
+        description: '',
+    }
+
+    handleOpen = () => {
+        this.setState({
+            open: (!this.state.open)
+        })
+    };
+  
+    handleClose = () => {
+        this.setState({
+            open: !this.state.open,
+            title: '',
+            tag: '',
+            description: ''
+        })
+    };
+
+    handleSubmit = () => {
+        // debugger;
+        const {title, tag, description} = this.state
+        this.props.createLog({title, tag, description})
+        this.handleClose()
+    }
+
+    handleChange = (e) => {
+        const newState = {...this.state}
+        newState[e.target.name] = e.target.value
+        this.setState(newState)
+    }
+    
+    render() {
+        const { classes } = this.props
+
+        return (
+            <div>
+                <button onClick={this.handleOpen} className='addBtn' ><i className="fas fa-plus-circle fa-2x"></i> </button>
+                <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={this.state.open} onClose={this.handleClose}>
+                    <form id='addNewLog' className={classes.paper} onSubmit={this.handleSubmit}>
+                        <Typography id='modalName' color='primary'> add a new log</Typography>
+                        <TextField onChange={e => this.handleChange(e)} value={this.state.title} name='title' className="formTitle" label="Title" margin="normal" variant="outlined"/>
+                        <TextField onChange={e => this.handleChange(e)} value={this.state.tag} name='tag' className="formTag" label="Tag" margin="normal" variant="outlined" placeholder='eg. Redux'/>
+                        <TextField onChange={e => this.handleChange(e)} value={this.state.description} name='description' className='formText' id="outlined-multiline-static" label="write here" rows="5" margin="normal" variant="outlined" multiline />
+                        <div id='modalButtons'>
+                            <Button onClick={this.handleSubmit} className='formBtn' variant='outlined' color='primary'>Add New</Button>
+                            <Button onClick={this.handleClose} className='closeBtn' variant='outlined' color='default'>cancel</Button>
+                        </div>
+                    </form>
+                </Modal>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
-export const LogListItem = props => {
+const Log = props => {
+    console.log('logProps: ', props)
     const handleSelect = (e) => {
         e.preventDefault()
         console.log(e.target)
@@ -46,14 +96,14 @@ export const LogListItem = props => {
         <div className='logItem' onClick={handleSelect}> 
             <div id='deets'>
                 <p id='liTitle'>{props.title}</p>
-                <p id='liDate'>{props.date}</p>
+                <p id='liDate'>{props.description}</p>
                 <p id='liTag'>{props.tag}</p>
             </div>
         </div>
     )
 }
 
-export const LogPreview = props => {
+const LogPreview = props => {
     const handleEdit = () => {
 
     }
@@ -76,77 +126,35 @@ export const LogPreview = props => {
     )
 }
 
-export const LogModal = props => { 
-    const [open, setOpen] = useState(false);
-    const [title, setNewTitle] = useState('');
-    const [tag, setNewTag] = useState('');
-    const [text, setNewText] = useState('');
-    
-      const useStyles = makeStyles(theme => ({
-        paper: {
-          position: 'absolute',
-          top: '100px',
-          left: '300px',
-          width: '500px',
-          [theme.breakpoints.down('sm')]: {
-            top: '80px',
-            left: '150px',
-            width: '400px'
-          },
-          [theme.breakpoints.down('xs')]: {
-            top: '50px',
-            left: '40px',
-            width: '300px'
-          },
-          backgroundColor: theme.palette.background.paper,
-          border: '2px solid #000',
-          boxShadow: theme.shadows[5],
-          padding: theme.spacing(2, 4, 4),
-          outline: 'none',
-        },
-      }));
-
-    const classes = useStyles();
-
-
-    const handleOpen = () => {
-      setOpen(true);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-      setNewTag('')
-      setNewText('')
-      setNewTitle('')
-    };
-
-    const handleSubmit = () => {
-        console.log('new text: ', text, "new title: ", title, 'new tag: ', tag)
-        handleClose()
-    }
-    
-
+const Logs = props => {
+    console.log('logs props : ', props)
     return (
-        <div>
-            <button onClick={handleOpen} className='addBtn' ><i className="fas fa-plus-circle fa-2x"></i> </button>
-            <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={open} onClose={handleClose}>
-                <form id='addNewLog' className={classes.paper}>
-                    <Typography id='modalName' color='primary'> add a new log</Typography>
-                    <TextField onChange={e => setNewTitle(e.target.value)} value={title} name='title' className="formTitle" label="Title" margin="normal" variant="outlined"/>
-                    <TextField onChange={e => setNewTag(e.target.value)} value={tag} name='tag' className="formTag" label="Tag" margin="normal" variant="outlined" placeholder='eg. Redux'/>
-                    <TextField onChange={e => setNewText(e.target.value)} value={text} name='text' className='formText' id="outlined-multiline-static" label="write here" rows="5" margin="normal" variant="outlined" multiline />
-                    <div id='modalButtons'>
-                        <Button onClick={handleSubmit} className='formBtn' variant='outlined' color='primary'>Add New</Button>
-                        <Button onClick={handleClose} className='closeBtn' variant='outlined' color='default'>cancel</Button>
-                    </div>
+        <div id='log'>
+            <Nav id='navLog'/>
+            <div id='logLeftPane'>
+                <div id='logBar'> 
+                    <h3>project title</h3>
+                    <LogModal {...props} />
+                </div>
+                <form id='search'>
+                    <TextField id="searchTag" label="search" placeholder='eg. mongo'/>
+                    <Button id='searchBtn' color='primary' type='submit'>go</Button>
                 </form>
-            </Modal>
+                <div id='logList'>
+                    <Log />
+                    {/* map here */}
+                </div>
+            </div>
+
+            <div id='logRightPane'>
+                <LogPreview />
+            </div>
         </div>
     )
 }
 
-Log.propTypes = {
+Logs.propTypes = {
 
 }
 
-export default Log
+export default withStyles(styles)(Logs)

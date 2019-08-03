@@ -12,7 +12,6 @@ const Logs = new Schema ({
     title: String,
     tag: String,
     description: String,
-    date: Date
 })
 
 const Tasks = new Schema ({

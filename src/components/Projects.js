@@ -13,15 +13,9 @@ const styles = theme => ({
       transform: 'translate(-50%, -50%)',
       width: '500px',
       [theme.breakpoints.down('sm')]: {
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
         width: '400px'
       },
       [theme.breakpoints.down('xs')]: {
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
         width: '300px'
       },
       backgroundColor: theme.palette.background.paper,

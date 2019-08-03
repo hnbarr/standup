@@ -14,15 +14,9 @@ const styles = theme => ({
       width: '500px',
       height: '300px',
       [theme.breakpoints.down('sm')]: {
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
           width: '400px'
       },
       [theme.breakpoints.down('xs')]: {
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
           width: '300px',
           height: '250px',
       },
@@ -38,7 +32,7 @@ class TaskModal extends Component {
     state = {
         open: false,
         task: '',
-        checked: []
+        checked: [] //for task progress in stats
     }
 
     toggleOpen = () => this.setState({ open: !this.state.open })
