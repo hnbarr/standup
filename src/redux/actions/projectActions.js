@@ -5,10 +5,21 @@ export function createProject (project){
     }
 }
 
-export function listProjects (projects){
+export function listProjects (){
+    return dispatch => {
+        fetch('/api/projects')
+        .then(res => res.json())
+        .then(projects => {
+            dispatch(setProject(projects))
+            return projects;
+        })
+    }
+}
+
+export function setProject(projects){
     return {
-        type: 'LIST_PROJECTS',
-        value: projects
+      type: "LIST_PROJECTS",
+      value: projects
     }
 }
 

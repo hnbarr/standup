@@ -13,14 +13,14 @@ const blockerRoutes = require('./routes/BlockersRoutes')
 
 require("dotenv").config()
 
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
 
 mongoose.set('debug', true);
 mongoose.Promise = global.Promise;
 
 
 mongoose.connect('mongodb+srv://admin:admin@cluster0-kohaq.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
-
+app.use(bodyParser.json())
 app.use('/', router)
 app.use(taskRoutes)
 app.use(projectRoutes)

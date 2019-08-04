@@ -22,7 +22,7 @@ const projects = ( state = [], action ) => {
         case 'SHOW_PROJECT':
             return action.value
         case 'CREATE_PROJECT':
-            return [...state, action.value]
+            return action.value
         // case 'UPDATE_PROJECT':
         //     return //need to figure this one out a little more.
         case 'DELETE_PROJECT':
@@ -30,7 +30,7 @@ const projects = ( state = [], action ) => {
             index > -1 && state.splice(index, 1)
             return state
         default: 
-            return [ ...state]
+            return [...state]
     }
 }
 
@@ -41,7 +41,7 @@ const logs = ( state = [], action ) => {
         case 'SHOW_LOG':
             return action.value
         case 'CREATE_LOG':
-            return [...state, action.value]
+            return action.value
         // case 'UPDATE_LOG':
         //     return //need to figure this one out a little more.
         case 'DELETE_LOG':
@@ -49,7 +49,7 @@ const logs = ( state = [], action ) => {
             index > -1 && state.splice(index, 1)
             return state
         default: 
-            return [ ...state]
+            return [...state]
     }
 }
 
@@ -58,7 +58,7 @@ const tasks = ( state = [], action ) => {
         case 'LIST_TASKS':
             return action.value
         case 'CREATE_TASK':
-            return [...state, action.value]
+            return action.value
         // case 'UPDATE_TASK':
         //     return //need to figure this one out a little more.
         case 'DELETE_TASK':
@@ -66,7 +66,7 @@ const tasks = ( state = [], action ) => {
             index > -1 && state.splice(index, 1)
             return state
         default: 
-            return [ ...state]
+            return [...state]
     }
 }
 
@@ -74,9 +74,10 @@ const blockers = ( state = [], action ) => {
     // debugger;
     switch(action.type){
         case 'LIST_BLOCKERS':
+            // console.log('action.value in reducer: ', action.value)
             return action.value
         case 'CREATE_BLOCKER':
-            return [...state, action.value]
+            return action.value
         // case 'UPDATE_BLOCKER':
         //     return //need to figure this one out a little more.
         case 'DELETE_BLOCKER':
@@ -84,7 +85,7 @@ const blockers = ( state = [], action ) => {
             index > -1 && state.splice(index, 1)
             return state
         default: 
-            return [ ...state]
+            return [...state]
     }
 }
 

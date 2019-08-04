@@ -1,6 +1,7 @@
 const { BlockersModel } = require('../../mongo/models');
 
 module.exports.list = (req, res) => {
+    console.log('listblockers req.body ', req.body)
     BlockersModel.find({ }).exec().then(blockers => {
         return res.json(blockers)
     })

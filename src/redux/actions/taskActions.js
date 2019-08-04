@@ -5,10 +5,21 @@ export function createTask (task){
     }
 }
 
-export function listTasks (tasks){
+export function listTasks (){
+    return dispatch => {
+        fetch('/api/tasks')
+        .then(res => res.json())
+        .then(tasks => {
+            dispatch(setTask(tasks))
+            return tasks;
+        })
+    }
+}
+
+export function setTask(tasks){
     return {
-        type: 'LIST_TASKS',
-        value: tasks
+      type: "LIST_TASKS",
+      value: tasks
     }
 }
 

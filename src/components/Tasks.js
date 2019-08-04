@@ -43,7 +43,21 @@ class TaskModal extends Component {
 
     handleSubmit = (e) => { 
         e.preventDefault()
-        this.props.createTask(this.state.task)
+        // this.props.createTask(this.state.task)
+        const {tasks} = this.state
+            let options = {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({ tasks })
+            }
+            fetch("/api/tasks", options).then((res)=>{
+                return res.json()
+            }).then((res)=>{
+                console.log(res)
+            }).catch((err)=>{
+                console.log(err)
+            })
+        this.props.listTasks()
         this.toggleOpen()
         this.handleClose()
     }
@@ -100,7 +114,7 @@ const Tasks = props => {
             </div>
             <div id='taskList'>
                 {props.tasks.map((t, i)=>{
-                    return <Task key={i} value={t}/>
+                    return <Task key={i} value={t.task}/>
                 })}
             </div>         
         </div>

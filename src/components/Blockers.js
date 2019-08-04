@@ -31,7 +31,6 @@ class BlockerModal extends Component {
         blocker: '',
         checked: [] //for blockers defeated in stats
     }
-
     toggleOpen = () => this.setState({ open: !this.state.open })
 
     setNewBlocker = (value) => this.setState({ blocker: value })
@@ -41,7 +40,21 @@ class BlockerModal extends Component {
     handleSubmit = (e) => { 
         e.preventDefault()
         // console.log('new blocker onSubmit: ', this.state.blocker)
-        this.props.createBlocker(this.state.blocker)
+        // this.props.createBlocker(this.state.blocker)
+            const {blocker} = this.state
+            let options = {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({ blocker })
+            }
+            fetch("/api/blockers", options).then((res)=>{
+                return res.json()
+            }).then((res)=>{
+                console.log(res)
+            }).catch((err)=>{
+                console.log(err)
+            })
+        this.props.listBlockers()
         this.toggleOpen()
         this.handleClose()
     }
@@ -67,6 +80,8 @@ class BlockerModal extends Component {
     }
 }
 
+
+
 const Blocker = props => {
     const handleEdit = (e) => {
         console.log(e.target, 'editing')
@@ -78,7 +93,7 @@ const Blocker = props => {
     return (
         <div className='newItem' id='newBlocker'>
             <Checkbox value={props.title} onClick={handleCheck} inputProps={{'aria-label': 'primary checkbox'}}/>
-            <p id='blockerTitle'>{props.value}</p>
+            <p id='blockerTitle'> {props.value}</p>
             <div id='blockerButtons'>
                 <button onClick={handleEdit} className='edit'><i className="fas fa-pencil-alt fa-2x"></i></button>
             </div>
@@ -96,7 +111,7 @@ const Blockers = (props) => {
                 </div>
                 <div id='blockerList'>
                     {props.blockers.map((b, i)=>{
-                        return <Blocker key={i} value={b}/>
+                        return <Blocker key={i} value={b.blocker}/>
                     })}
                 </div>     
         </div>

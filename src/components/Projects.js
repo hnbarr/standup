@@ -51,7 +51,20 @@ class ProjectModal extends Component {
 
     handleSubmit = () => {
         const {title, description, deadline} = this.state
-        this.props.createProject({title, description, deadline})
+        // this.props.createProject({title, description, deadline})
+        let options = {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ title, description, deadline })
+        }
+        fetch("/api/projects", options).then((res)=>{
+            return res.json()
+        }).then((res)=>{
+            console.log(res)
+        }).catch((err)=>{
+            console.log(err)
+        })
+    this.props.listProjects()
         this.handleClose()
     }
 
@@ -70,9 +83,9 @@ class ProjectModal extends Component {
                 <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={this.state.open} onClose={this.handleClose}>
                     <form id='addNewProject' className={classes.paper} onSubmit={this.handleSubmit}>
                         <Typography id='modalName' color='primary'> add a new project</Typography>
-                        <TextField onChange={e => this.handleChange(e)} value={this.state.title} name='title' className="formTitle" label="title" margin="normal" variant="outlined"/>
-                        <TextField onChange={e => this.handleChange(e)} value={this.state.deadline} name='deadline' className="formTag" label="deadline" margin="normal" variant="outlined" placeholder='mm/dd/yyyy'/>
-                        <TextField onChange={e => this.handleChange(e)} value={this.state.description} name='description' className='formText' id="outlined-multiline-static" label="description" rows="5" margin="normal" variant="outlined" multiline />
+                        <TextField onChange={this.handleChange} value={this.state.title} name='title' className="formTitle" label="title" margin="normal" variant="outlined"/>
+                        <TextField onChange={this.handleChange} value={this.state.deadline} name='deadline' className="formTag" label="deadline" margin="normal" variant="outlined" placeholder='mm/dd/yyyy'/>
+                        <TextField onChange={this.handleChange} value={this.state.description} name='description' className='formText' id="outlined-multiline-static" label="description" rows="5" margin="normal" variant="outlined" multiline />
                         <div id='modalButtons'>
                             <Button onClick={this.handleSubmit} type='submit' className='formBtn' variant='outlined' color='primary'>Add New</Button>
                             <Button onClick={this.handleClose} className='closeBtn' variant='outlined'>cancel</Button>
@@ -129,7 +142,7 @@ const Projects = (props) => {
             </form>
             <div id='projectList'>
                 {props.projects.map((p, i)=>{
-                    return <Project key={i} value={p}/>
+                    return <Project key={i} title={p.title} description={p.description} deadline={p.deadline}/>
                 })}
             </div>        
         </div>
