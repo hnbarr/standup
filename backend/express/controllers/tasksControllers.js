@@ -7,6 +7,7 @@ module.exports.list = (req, res) => {
 }
 
 module.exports.create = (req, res)=>{
+    console.log('create req.body', req.body)
     const t = new TasksModel({
         task: req.body.task,
         date: req.body.date

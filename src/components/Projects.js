@@ -64,7 +64,7 @@ class ProjectModal extends Component {
         }).catch((err)=>{
             console.log(err)
         })
-    this.props.listProjects()
+        this.props.listProjects()
         this.handleClose()
     }
 

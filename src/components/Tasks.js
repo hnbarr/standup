@@ -44,20 +44,22 @@ class TaskModal extends Component {
     handleSubmit = (e) => { 
         e.preventDefault()
         // this.props.createTask(this.state.task)
-        const {tasks} = this.state
+        const task = this.state.task
+        const date = new Date()
             let options = {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({ tasks })
+                body: JSON.stringify({ task, date })
             }
             fetch("/api/tasks", options).then((res)=>{
                 return res.json()
             }).then((res)=>{
+                this.props.listTasks()
                 console.log(res)
             }).catch((err)=>{
                 console.log(err)
             })
-        this.props.listTasks()
+        // this.props.listTasks()
         this.toggleOpen()
         this.handleClose()
     }
@@ -70,7 +72,7 @@ class TaskModal extends Component {
                 <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={this.state.open} onClose={this.handleClose}>
                     <form id='addNewTask' className={classes.paper} onSubmit={this.handleSubmit}>
                         <Typography id='modalName' color='primary'> what else to do today?</Typography>
-                        <TextField  onChange={e => this.setNewTask(e.target.value)} className="formTitle" name='task' value={this.state.task} label="task"  placeholder='eg. finish responsive button' margin="normal" variant="outlined"/>
+                        <TextField  onChange={e => this.setNewTask(e.target.value)} value={this.state.task} className="formTitle" name='task' value={this.state.task} label="task"  placeholder='eg. finish responsive button' margin="normal" variant="outlined"/>
                         <div id='modalButtons'>
                             <Button onClick={this.handleSubmit} type='submit' className='formBtn' variant='outlined' color='primary'>add new</Button>
                             <Button onClick={this.handleClose} className='closeBtn' variant='outlined'>cancel</Button>

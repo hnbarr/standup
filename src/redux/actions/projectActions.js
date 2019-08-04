@@ -1,7 +1,11 @@
 export function createProject (project){
     return {
         type: 'CREATE_PROJECT',
-        value: project
+        value: {
+            title: project.title, 
+            description: project.description, 
+            deadline: project.deadline
+        }
     }
 }
 

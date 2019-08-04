@@ -6,6 +6,7 @@ export function createTask (task){
 }
 
 export function listTasks (){
+    console.log('made it to list task')
     return dispatch => {
         fetch('/api/tasks')
         .then(res => res.json())

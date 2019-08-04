@@ -54,8 +54,8 @@ class BlockerModal extends Component {
             }).catch((err)=>{
                 console.log(err)
             })
-        this.props.listBlockers()
         this.toggleOpen()
+        this.props.listBlockers()
         this.handleClose()
     }
 
