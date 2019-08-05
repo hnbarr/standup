@@ -24,7 +24,28 @@ const styles = theme => ({
       padding: theme.spacing(2, 4, 4),
       outline: 'none',
     },
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+      },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: 200,
+    }
   });
+
+
+//   const DatePicker = () => {
+//      return(
+//         <form className={classes.container} noValidate>
+//             <TextField id="date" label="deadline" type="date" defaultValue="2020-05-24"className={classes.textField}
+//                 InputLabelProps={{
+//                     shrink: true
+//                 }}/>
+//         </form>
+//     )
+// }
 
 class ProjectModal extends Component {
     state = {
@@ -51,7 +72,8 @@ class ProjectModal extends Component {
 
     handleSubmit = () => {
         const {title, description, deadline} = this.state
-        // this.props.createProject({title, description, deadline})
+        // const DATE = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        // const updatedDeadline = deadline.toLocaleDateString('en-US', DATE)
         let options = {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -60,11 +82,11 @@ class ProjectModal extends Component {
         fetch("/api/projects", options).then((res)=>{
             return res.json()
         }).then((res)=>{
+            this.props.listProjects()
             console.log(res)
         }).catch((err)=>{
             console.log(err)
         })
-        this.props.listProjects()
         this.handleClose()
     }
 
@@ -74,6 +96,7 @@ class ProjectModal extends Component {
         this.setState(newState)
     }
 
+    
     render(){
         const { classes } = this.props
 
@@ -84,7 +107,11 @@ class ProjectModal extends Component {
                     <form id='addNewProject' className={classes.paper} onSubmit={this.handleSubmit}>
                         <Typography id='modalName' color='primary'> add a new project</Typography>
                         <TextField onChange={this.handleChange} value={this.state.title} name='title' className="formTitle" label="title" margin="normal" variant="outlined"/>
+                        
+                        
                         <TextField onChange={this.handleChange} value={this.state.deadline} name='deadline' className="formTag" label="deadline" margin="normal" variant="outlined" placeholder='mm/dd/yyyy'/>
+                        {/* <DatePicker /> */}
+                        
                         <TextField onChange={this.handleChange} value={this.state.description} name='description' className='formText' id="outlined-multiline-static" label="description" rows="5" margin="normal" variant="outlined" multiline />
                         <div id='modalButtons'>
                             <Button onClick={this.handleSubmit} type='submit' className='formBtn' variant='outlined' color='primary'>Add New</Button>
@@ -105,19 +132,22 @@ const Project = props => {
     const handleSubmit = (e) => {
         console.log(e.target)
     }
+    // const DATE = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    // const newDate = () => props.deadline.toLocaleDateString('en-US', DATE)
+
     return (
         <div className='newItem' id='newProject'>
             <div id='projTitle'>
-                <p>{props.value.title}</p>
+                <p>{props.title}</p>
             </div>
             <div id='projDeadline'>
                 <div id='dline'>
                     <b>Deadline:</b>
-                    <p>{props.value.deadline}</p>
+                    <p>{props.deadline}</p>
                 </div>
             </div>
             <div id='projDes'>
-                <p> {props.value.description}</p>
+                <p> {props.description}</p>
             </div>
             <div id='projButtons'>
                 <Link to='./log' className='edit'>details <span>{props.logs}</span>{/*number of log list items for project*/} </Link>
@@ -130,6 +160,7 @@ const Project = props => {
 
 const Projects = (props) => {
     console.log('projects props: ', props)
+
     return (
         <div className='component' id='projects'>
             <div className='toolbar'>

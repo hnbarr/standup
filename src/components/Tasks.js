@@ -46,6 +46,7 @@ class TaskModal extends Component {
         // this.props.createTask(this.state.task)
         const task = this.state.task
         const date = new Date()
+
             let options = {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},

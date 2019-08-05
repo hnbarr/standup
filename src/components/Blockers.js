@@ -42,10 +42,12 @@ class BlockerModal extends Component {
         // console.log('new blocker onSubmit: ', this.state.blocker)
         // this.props.createBlocker(this.state.blocker)
             const {blocker} = this.state
+            // const DATE = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const date = new Date()
             let options = {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({ blocker })
+                body: JSON.stringify({ blocker , date})
             }
             fetch("/api/blockers", options).then((res)=>{
                 return res.json()

@@ -10,12 +10,10 @@ import { listTasks } from './redux/actions/taskActions'
 
 export class App extends Component{
     componentDidMount(){
-        // fetch('/api/blockers')
-        // .then(response => response.json())
-        // .then(data => console.log(data))
+
         this.props.listBlockers()
         this.props.listTasks()
-        // this.props.listProjects()
+        this.props.listProjects()
     }
 
   render(){
@@ -33,14 +31,14 @@ const mapStateToProps = state => {
     return {
         blockers: state.blockers,
         tasks: state.tasks,
-        // projects: state.projects
+        projects: state.projects
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         listBlockers: () => dispatch(listBlockers()),
-        // listProjects: () => dispatch(listProjects()),
+        listProjects: () => dispatch(listProjects()),
         listTasks: () => dispatch(listTasks())
     }
 }
