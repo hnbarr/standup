@@ -75,7 +75,7 @@ class TaskModal extends Component {
                         <TextField  onChange={e => this.setNewTask(e.target.value)} value={this.state.task} className="formTitle" name='task' value={this.state.task} label="task"  placeholder='eg. finish responsive button' margin="normal" variant="outlined"/>
                         <div id='modalButtons'>
                             <Button onClick={this.handleSubmit} type='submit' className='formBtn' variant='outlined' color='primary'>add new</Button>
-                            <Button onClick={this.handleClose} className='closeBtn' variant='outlined'>cancel</Button>
+                            <Button onClick={this.toggleOpen} className='closeBtn' variant='outlined'>cancel</Button>
                         </div>
                     </form>
                 </Modal>

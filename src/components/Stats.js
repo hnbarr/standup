@@ -6,7 +6,7 @@ import './styles/sections.css'
 export const TaskStat = props => {
     return (
         <div className='newStat'>
-            <p>Task Progress</p>
+            <p>Daily Task Progress</p>
             <b>{props.checked}/{props.count}</b>
         </div>
     )
