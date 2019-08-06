@@ -32,4 +32,4 @@ app.get('/', (req,res)=>{
     res.send('server says wassup')
 })
 
-app.listen(3000)
+app.listen(HOST || 3000)
