@@ -30,6 +30,7 @@ const styles = theme => ({
   class LogModal extends Component { 
     state = {
         open: false,
+        logs: [],
         title: '',
         tag: '',
         description: '',
@@ -96,7 +97,7 @@ const Log = props => {
         <div className='logItem' onClick={handleSelect}> 
             <div id='deets'>
                 <p id='liTitle'>{props.title}</p>
-                <p id='liDate'>{props.description}</p>
+                {/* <p id='liDate'>{props.description}</p> */}
                 <p id='liTag'>{props.tag}</p>
             </div>
         </div>
@@ -113,10 +114,11 @@ const LogPreview = props => {
     return (
         <div className='logPreview'>
             <div id='previewDetails'>
-                display name, date and tag of clicked log.  
+                <p>{props.title}</p>
+                <p>{props.tag}</p>
             </div>
             <div id='previewTextBox'>
-                body here
+                {props.tag}
             </div>
             <div id='previewBtns'>
                 <button onClick={handleEdit} className='edit'>edit </button>
@@ -141,8 +143,10 @@ const Logs = props => {
                     <Button id='searchBtn' color='primary' type='submit'>go</Button>
                 </form>
                 <div id='logList'>
-                    <Log />
-                    {/* map here */}
+                    <Log title={'hard code title'} description={'hard code description'} tag={'hard code tag'}/>
+                    {/* {props.logs.map((l, i)=>{
+                        return <Log key={i} title={l.title} description={l.description} tag={l.tag}/>
+                    })} */}
                 </div>
             </div>
 

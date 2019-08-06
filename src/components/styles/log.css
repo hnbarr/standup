@@ -125,8 +125,8 @@
     height: 80%;
     grid-template-rows: 50%;
     grid-template-areas:
-        'title lidate'
-        '... litag'
+        'title litag'
+        /* 'lidate lidate' */
 }
 
 .logPreview {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
-import { useState } from 'react'
+// import { useState } from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import { Typography, TextField, Button, Modal } from '@material-ui/core'
 import { Link } from 'react-router-dom'
@@ -33,16 +33,16 @@ const styles = theme => ({
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
         width: 200,
-    },
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-      },
-      dateTextField: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        width: 200,
-      }
+    }
+    // container: {
+    //     display: 'flex',
+    //     flexWrap: 'wrap',
+    //   },
+    //   dateTextField: {
+    //     marginLeft: theme.spacing(1),
+    //     marginRight: theme.spacing(1),
+    //     width: 200,
+    //   }
   });
 
 
@@ -52,7 +52,8 @@ class ProjectModal extends Component {
         title: '',
         description: '',
         deadline: '',
-        submitted: [] //for stats
+        submitted: [], //for stats
+        logs: [] //for log section
     }
 
     handleOpen = () => {
@@ -67,7 +68,8 @@ class ProjectModal extends Component {
             title: '',
             description: '',
             deadline: '',
-            submitted: [...this.state.submitted]
+            submitted: [...this.state.submitted],
+            logs: []
         })
     };
 
@@ -168,7 +170,7 @@ const Project = props => {
                 <p> {props.description}</p>
             </div>
             <div id='projButtons'>
-                <Link to='./log' className='edit'>details <span>{props.logs}</span>{/*number of log list items for project*/} </Link>
+                <Link to='/projects/:id/logs' className='edit'>details <span>{props.logs}</span>{/*number of log list items for project*/} </Link>
                 <button onClick={handleDelete} className='trash'>delete</button>
                 <button onClick={handleSubmit} className='submit'>submit</button>
             </div>

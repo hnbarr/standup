@@ -10,7 +10,7 @@ const Router = () => {
         <Switch>
             <Route exact path='/' component={Login}></Route>
             <Route path='/dashboard' component={Dashboard}></Route>
-            <Route path='/log' component={Logs}></Route> 
+            <Route path='/projects/:id/logs' component={Logs}></Route> 
             {/* need to update the log path to include project ids */}
         </Switch>
     );

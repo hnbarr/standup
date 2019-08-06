@@ -5,12 +5,31 @@ export function createLog (log){
     }
 }
 
-export function listLogs (logs){
-    return {
-        type: 'LIST_LOGS',
-        value: logs
+export function listLogss (){
+    console.log('made it to list logs')
+    return dispatch => {
+        fetch('/api/projects/:id/logs')
+        .then(res => res.json())
+        .then(logs => {
+            dispatch(setLog(logs))
+            return logs;
+        })
     }
 }
+
+export function setLog(logs){
+    return {
+      type: "LIST_LOGS",
+      value: logs
+    }
+}
+
+// export function listLogs (logs){
+//     return {
+//         type: 'LIST_LOGS',
+//         value: logs
+//     }
+// }
 
 export function showLog (log){
     return {
