@@ -14,7 +14,7 @@ import { ThemeProvider } from '@material-ui/styles';
 const Dashboard = props => {
     const theme = createMuiTheme({
         palette: {
-          primary: { main: '#102D5C' }, //green C5E0A5
+          primary: { main: '#102D5C'}, //green C5E0A5
           secondary: { main: '#3C649D'} //purple C5CAE9
         }
       });

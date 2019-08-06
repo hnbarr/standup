@@ -10,7 +10,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      updateTask: (task) => dispatch(updateTask(task)),
+      updateTask: (task, id) => dispatch(updateTask(task, id)),
       listTasks: () => dispatch(listTasks()),
       createTask: (task) => dispatch(createTask(task)),
       deleteTask: (task) => dispatch(deleteTask(task))

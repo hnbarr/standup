@@ -3,4 +3,5 @@ export default {
     tasks: [],
     blockers: [],
     stats: [],
+    logs: []
 }

@@ -26,7 +26,6 @@ const styles = theme => ({
     },
   });
 
-
   class LogModal extends Component { 
     state = {
         open: false,
@@ -130,13 +129,14 @@ const LogPreview = props => {
 
 const Logs = props => {
     console.log('logs props : ', props)
+    // const { createLog } = props
     return (
         <div id='log'>
             <Nav id='navLog'/>
             <div id='logLeftPane'>
                 <div id='logBar'> 
                     <h3>project title</h3>
-                    <LogModal {...props} />
+                    <LogModal {...props}/>
                 </div>
                 <form id='search'>
                     <TextField id="searchTag" label="search" placeholder='eg. mongo'/>

@@ -28,6 +28,8 @@ const styles = theme => ({
     },
   });
 
+//   need to make modal for edit, use gett request to update.
+
 class TaskModal extends Component {
     state = {
         open: false,
@@ -73,7 +75,7 @@ class TaskModal extends Component {
                 <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={this.state.open} onClose={this.handleClose}>
                     <form id='addNewTask' className={classes.paper} onSubmit={this.handleSubmit}>
                         <Typography id='modalName' color='primary'> what else to do today?</Typography>
-                        <TextField  onChange={e => this.setNewTask(e.target.value)} value={this.state.task} className="formTitle" name='task' value={this.state.task} label="task"  placeholder='eg. finish responsive button' margin="normal" variant="outlined"/>
+                        <TextField  onChange={e => this.setNewTask(e.target.value)} value={this.state.task} className="formTitle" name='task' label="task"  placeholder='eg. finish responsive button' margin="normal" variant="outlined"/>
                         <div id='modalButtons'>
                             <Button onClick={this.handleSubmit} type='submit' className='formBtn' variant='outlined' color='primary'>add new</Button>
                             <Button onClick={this.toggleOpen} className='closeBtn' variant='outlined'>cancel</Button>
@@ -93,6 +95,7 @@ const Task = props => {
     }
     const handleEdit = (e) => {
         console.log(e.target)
+        this.props.updateTask(e.target.value, e.target.id)
     }
     
     return (
