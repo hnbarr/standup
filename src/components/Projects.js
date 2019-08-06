@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
+import { useState } from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import { Typography, TextField, Button, Modal } from '@material-ui/core'
 import { Link } from 'react-router-dom'
@@ -32,27 +33,26 @@ const styles = theme => ({
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
         width: 200,
-    }
+    },
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+      },
+      dateTextField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: 200,
+      }
   });
 
-
-//   const DatePicker = () => {
-//      return(
-//         <form className={classes.container} noValidate>
-//             <TextField id="date" label="deadline" type="date" defaultValue="2020-05-24"className={classes.textField}
-//                 InputLabelProps={{
-//                     shrink: true
-//                 }}/>
-//         </form>
-//     )
-// }
 
 class ProjectModal extends Component {
     state = {
         open: false,
         title: '',
         description: '',
-        deadline: ''
+        deadline: '',
+        submitted: [] //for stats
     }
 
     handleOpen = () => {
@@ -66,7 +66,8 @@ class ProjectModal extends Component {
             open: !this.state.open,
             title: '',
             description: '',
-            deadline: ''
+            deadline: '',
+            submitted: [...this.state.submitted]
         })
     };
 
@@ -96,6 +97,10 @@ class ProjectModal extends Component {
         this.setState(newState)
     }
 
+    // handleDate = (e, date) => {
+    //     this.setState({deadline: date})
+    //   }
+
     
     render(){
         const { classes } = this.props
@@ -110,7 +115,7 @@ class ProjectModal extends Component {
                         
                         
                         <TextField onChange={this.handleChange} value={this.state.deadline} name='deadline' className="formTag" label="deadline" margin="normal" variant="outlined" placeholder='mm/dd/yyyy'/>
-                        {/* <DatePicker /> */}
+                        {/* <DatePicker date={this.state.deadline} onChange={this.handleDate}/> */}
                         
                         <TextField onChange={this.handleChange} value={this.state.description} name='description' className='formText' id="outlined-multiline-static" label="description" rows="5" margin="normal" variant="outlined" multiline />
                         <div id='modalButtons'>
@@ -123,6 +128,19 @@ class ProjectModal extends Component {
         )
     }
 }
+
+// const DatePicker = (props) => {
+//     // const { classes } = props
+
+//      return(
+//         <form  noValidate>
+//             <TextField id="date" label="deadline" type="date" defaultValue="2020-05-24" name='date' value={props.deadline}
+//                 InputLabelProps={{
+//                     shrink: true
+//                 }}/>
+//         </form>
+//     )
+// }
 
 const Project = props => {
     console.log('project props : ', props)
