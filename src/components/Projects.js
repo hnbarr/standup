@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// import Moment from 'react'
 // import PropTypes from 'prop-types'
 // import { useState } from 'react'
 import { withStyles } from '@material-ui/core/styles';
@@ -148,6 +149,7 @@ const Project = props => {
                 <div id='dline'>
                     <b>Deadline:</b>
                     <p>{props.deadline}</p>
+                    {/* <Moment format='MM/DD/YYYY'>{props.deadline}</Moment>  */}
                 </div>
             </div>
             <div id='projDes'>

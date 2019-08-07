@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const Projects = new Schema ({
     title: String,
     description: String,
-    deadline: Date,
+    deadline: String,
 })
 
 const Logs = new Schema ({
