@@ -54,6 +54,7 @@ class ProjectModal extends Component {
         description: '',
         deadline: '',
         submitted: [], //for stats
+        // id: this.state._id,
         logs: [] //for log section
     }
 
@@ -70,6 +71,7 @@ class ProjectModal extends Component {
             description: '',
             deadline: '',
             submitted: [...this.state.submitted],
+            // id: this.state._id,
             logs: []
         })
     };
@@ -156,6 +158,7 @@ const Project = props => {
                 <p> {props.description}</p>
             </div>
             <div id='projButtons'>
+            {/* pretty sure I need to change to tic marks and access project Id from state, postman workign able to post diff logs to specific projects */}
                 <Link to='/projects/:id/logs' className='edit'>details <span>{props.logs}</span>{/*number of log list items for project*/} </Link>
                 <button onClick={handleDelete} className='trash'>delete</button>
                 <button onClick={handleSubmit} className='submit'>submit</button>
