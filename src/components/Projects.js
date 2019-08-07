@@ -99,10 +99,6 @@ class ProjectModal extends Component {
         this.setState(newState)
     }
 
-    // handleDate = (e, date) => {
-    //     this.setState({deadline: date})
-    //   }
-
     
     render(){
         const { classes } = this.props
@@ -131,18 +127,6 @@ class ProjectModal extends Component {
     }
 }
 
-// const DatePicker = (props) => {
-//     // const { classes } = props
-
-//      return(
-//         <form  noValidate>
-//             <TextField id="date" label="deadline" type="date" defaultValue="2020-05-24" name='date' value={props.deadline}
-//                 InputLabelProps={{
-//                     shrink: true
-//                 }}/>
-//         </form>
-//     )
-// }
 
 const Project = props => {
     console.log('project props : ', props)
