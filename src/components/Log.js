@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import './styles/log.css'
 import Nav from './Nav'
 import { TextField, Button, Modal, Typography } from '@material-ui/core'
@@ -50,10 +50,10 @@ const styles = theme => ({
         })
     };
 
-    handleSubmit = () => {
-        // debugger;
+    handleSubmit = () => {     
         const {title, tag, description} = this.state
         this.props.createLog({title, tag, description})
+        
         this.handleClose()
     }
 
@@ -88,10 +88,13 @@ const styles = theme => ({
 
 const Log = props => {
     console.log('logProps: ', props)
-    const handleSelect = (e) => {
-        e.preventDefault()
-        console.log(e.target)
+
+    const handleSelect= (e) =>{
+        const log = {...props}
+        delete log.handleSelect
+        props.handleSelect(e, log)
     }
+
     return (
         <div className='logItem' onClick={handleSelect}> 
             <div id='deets'>
@@ -113,11 +116,11 @@ const LogPreview = props => {
     return (
         <div className='logPreview'>
             <div id='previewDetails'>
-                <p>{props.title}</p>
-                <p>{props.tag}</p>
+                <p>{props.log.title}</p>
+                <p>{props.log.tag}</p>
             </div>
             <div id='previewTextBox'>
-                {props.tag}
+                {props.log.description}
             </div>
             <div id='previewBtns'>
                 <button onClick={handleEdit} className='edit'>edit </button>
@@ -129,13 +132,24 @@ const LogPreview = props => {
 
 const Logs = props => {
     console.log('logs props : ', props)
-    // const { createLog } = props
+    const [selected, setSelected] = useState({});
+    const handleSelect = (e, log) => {
+        e.preventDefault()
+        console.log(e.target)
+        setSelected(log)
+    }
+
+    useEffect(() => {
+        const projectId = props.match.params.id
+        props.listLogs(projectId)
+    }, [props.listLogs])
+
     return (
         <div id='log'>
             <Nav id='navLog'/>
             <div id='logLeftPane'>
                 <div id='logBar'> 
-                    <h3>project title</h3>
+                    <h3>Logs</h3>
                     <LogModal {...props}/>
                 </div>
                 <form id='search'>
@@ -143,22 +157,18 @@ const Logs = props => {
                     <Button id='searchBtn' color='primary' type='submit'>go</Button>
                 </form>
                 <div id='logList'>
-                    <Log title={'hard code title'} description={'hard code description'} tag={'hard code tag'}/>
-                    {/* {props.logs.map((l, i)=>{
-                        return <Log key={i} title={l.title} description={l.description} tag={l.tag}/>
-                    })} */}
+                    {/* <Log title={'hard code title'} description={'hard code description'} tag={'hard code tag'}/> */}
+                    {props.logs.map((l, i)=>{
+                        return <Log key={i} title={l.title} description={l.description} tag={l.tag} handleSelect={handleSelect}/>
+                    })}
                 </div>
             </div>
 
             <div id='logRightPane'>
-                <LogPreview />
+                <LogPreview log={selected} />
             </div>
         </div>
     )
-}
-
-Logs.propTypes = {
-
 }
 
 export default withStyles(styles)(Logs)

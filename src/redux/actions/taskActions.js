@@ -19,12 +19,12 @@ export function createTask (task){
 //     }
 // }
 
-export function setTask(tasks){
-    return {
-      type: "LIST_TASKS",
-      value: tasks
-    }
-}
+// export function setTask(tasks){
+//     return {
+//       type: "LIST_TASKS",
+//       value: tasks
+//     }
+// }
 
 export function updateTask (task){
     return {

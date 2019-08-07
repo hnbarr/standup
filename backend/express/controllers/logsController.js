@@ -1,7 +1,9 @@
 const { LogsModel } = require('../../mongo/models');
 
 module.exports.list = (req, res) => {
-    LogsModel.find({ projectId: req.params.id }).exec().then(logs => {
+    LogsModel.find({ projectId: req.params.id })
+    .then(logs => {
+        console.log('FOUND THE LOGS', logs)
         return res.json(logs)
     })
 }
@@ -16,7 +18,7 @@ module.exports.show = (req, res)=>{
 
 module.exports.create = (req, res)=>{
     const l = new LogsModel({
-        projectId: req.body.projectId,
+        projectId: req.params.id,
         title: req.body.title,
         tag: req.body.tag,
         description: req.body.description,

@@ -35,15 +35,6 @@ const styles = theme => ({
         marginRight: theme.spacing(1),
         width: 200,
     }
-    // container: {
-    //     display: 'flex',
-    //     flexWrap: 'wrap',
-    //   },
-    //   dateTextField: {
-    //     marginLeft: theme.spacing(1),
-    //     marginRight: theme.spacing(1),
-    //     width: 200,
-    //   }
   });
 
 
@@ -139,8 +130,6 @@ const Project = props => {
     const handleSubmit = (e) => {
         console.log(e.target)
     }
-    // const DATE = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    // const newDate = () => props.deadline.toLocaleDateString('en-US', DATE)
 
     return (
         <div className='newItem' id='newProject'>
@@ -159,7 +148,7 @@ const Project = props => {
             </div>
             <div id='projButtons'>
             {/* pretty sure I need to change to tic marks and access project Id from state, postman workign able to post diff logs to specific projects */}
-                <Link to='/projects/:id/logs' className='edit'>details <span>{props.logs}</span>{/*number of log list items for project*/} </Link>
+                <Link to={`/projects/${props.id}/logs`} className='edit'>details <span>{props.logs}</span>{/*number of log list items for project*/} </Link>
                 <button onClick={handleDelete} className='trash'>delete</button>
                 <button onClick={handleSubmit} className='submit'>submit</button>
             </div>
@@ -181,8 +170,8 @@ const Projects = (props) => {
                 <Button id='searchBtn' color='primary' type='submit' variant='outlined' >go</Button>
             </form>
             <div id='projectList'>
-                {props.projects.map((p, i)=>{
-                    return <Project key={i} title={p.title} description={p.description} deadline={p.deadline}/>
+                {props.projects.map((p)=>{
+                    return <Project key={p._id} id={p._id} logs={p.logs} title={p.title} description={p.description} deadline={p.deadline}/>
                 })}
             </div>        
         </div>

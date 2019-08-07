@@ -34,14 +34,14 @@ const projects = ( state = [], action ) => {
     }
 }
 
-const logs = ( state = [], action ) => {
+const logs = (state = [], action ) => {
     switch(action.type){
         case 'LIST_LOGS':
-            return action.value
+            return [...state].concat(action.value)
         case 'SHOW_LOG':
             return action.value
         case 'CREATE_LOG':
-            return action.value
+            return [...state, action.value]
         // case 'UPDATE_LOG':
         //     return //need to figure this one out a little more.
         case 'DELETE_LOG':
