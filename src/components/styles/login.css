@@ -60,6 +60,18 @@
     border-top: 1px solid rgb(230, 196, 0);
 }
 
+#loginLink {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    color: royalblue;
+}
+
+#loginButton {
+    height: 100% !important;
+    padding: 0 !important;
+}
 #loginSignup {
     display: flex;
     flex-wrap: wrap;

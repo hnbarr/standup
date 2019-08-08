@@ -26,8 +26,11 @@ export default class Login extends Component {
                             <TextField id="outlined-email-input" label="Email" type="email" name="email" autoComplete="email" variant="outlined"/>
                             <TextField id="outlined-password-input" label="Password" type="password" autoComplete="current-password" variant="outlined"/>
                             <div id='buttonSection'>
-                                <Button variant='outlined' color='primary'>Login</Button>
-                                <Link to='/dashboard'> dash </Link> 
+                                <Button id='loginButton'variant='outlined' color='primary'>
+                                    <Link to='/dashboard' id='loginLink'>
+                                        Login
+                                    </Link>
+                                </Button>
                             </div>
                         </form>
                     </div>
