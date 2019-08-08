@@ -116,7 +116,7 @@ const LogPreview = props => {
     return (
         <div className='logPreview'>
             <div id='previewDetails'>
-                <p>{props.log.title}</p>
+                <b>{props.log.title}</b>
                 <p>{props.log.tag}</p>
             </div>
             <div id='previewTextBox'>

@@ -148,14 +148,20 @@
 }
 
 #previewDetails {
-    height: 20%;
+    padding: 10px;
+    height: 15%;
     width: 90%;
     margin: 0 auto;
+    text-align:right;
 }
 #previewTextBox {
-    height: 70%;
+    height: 75%;
     width: 90%;
+    font-size: 18px;
     margin: 0 auto;
+    text-align:left;
+    line-height: 1.8;
+    overflow: scroll;
     /* border: 1px solid #E6C400; */
 }
 
@@ -224,5 +230,14 @@
     }
     #logPreview {
         height: 200px;
+    }
+    #previewTextBox{
+        height: 55%;
+    }
+    #previewDetails {
+        height: 35%;
+    }
+    #previewBtns {
+        height: 10%;
     }
 }

@@ -91,6 +91,7 @@ const Blocker = props => {
 
     const handleCheck = (e) => {
         console.log(e.target.value, 'checkd')
+        this.props.deleteBlocker()
     }
     return (
         <div className='newItem' id='newBlocker'>
