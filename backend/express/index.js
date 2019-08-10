@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const app = express()
 const router = require('./routes/TasksRoutes')
 const bodyParser = require('body-parser')
+const path = require('path')
 
 // routes
 const taskRoutes = require('./routes/TasksRoutes')
@@ -18,7 +19,7 @@ require("dotenv").config()
 mongoose.set('debug', true);
 mongoose.Promise = global.Promise;
 
-const port = process.env.NODE_ENV === 'production' ? 'https://flamboyant-noyce-0c009c.netlify.com/' : 3001 
+// const port = process.env.NODE_ENV === 'production' ? 'https://flamboyant-noyce-0c009c.netlify.com/' : 3001 
 
 mongoose.connect('mongodb+srv://admin:admin@cluster0-kohaq.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
 app.use(bodyParser.json())
@@ -29,8 +30,9 @@ app.use(logRoutes)
 app.use(blockerRoutes)
 
 
-app.get('/', (req,res)=>{
-    res.send('server says wassup')
-})
+app.use(express.static(path.join(__dirname, "../../build")))
 
-app.listen(port)
+app.listen(3001, (err)=>{
+    if(err) console.log(err)
+    else console.log(`working on port 3001`)
+})
