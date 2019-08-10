@@ -18,6 +18,7 @@ require("dotenv").config()
 mongoose.set('debug', true);
 mongoose.Promise = global.Promise;
 
+const port = process.env.NODE_ENV === 'production' ? 'https://flamboyant-noyce-0c009c.netlify.com/' : 3001 
 
 mongoose.connect('mongodb+srv://admin:admin@cluster0-kohaq.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
 app.use(bodyParser.json())
@@ -32,4 +33,4 @@ app.get('/', (req,res)=>{
     res.send('server says wassup')
 })
 
-app.listen(3001)
+app.listen(port)
