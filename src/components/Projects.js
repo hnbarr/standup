@@ -148,7 +148,7 @@ const Project = props => {
             </div>
             <div id='projButtons'>
             {/* pretty sure I need to change to tic marks and access project Id from state, postman workign able to post diff logs to specific projects */}
-                <Link to={`/projects/${props.id}/logs`} className='edit'>details <span>{props.logs}</span>{/*number of log list items for project*/} </Link>
+                <Link to={`/projects/${props.id}/logs`} className='edit'>details{/*number of log list items for project*/} </Link>
                 <button onClick={handleDelete} className='trash'>delete</button>
                 <button onClick={handleSubmit} className='submit'>submit</button>
             </div>

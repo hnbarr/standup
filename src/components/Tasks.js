@@ -88,10 +88,14 @@ class TaskModal extends Component {
 }
 
 const Task = props => {
+    const tag = props.tag
     const handleCheck = (e) => {
-        console.log(e.target.value)
-        // setTimeout to remove from array
-        // setTimeout to add +1 to tasksCompleted in stats
+        // console.log(e.target.value)
+        e.preventDefault()
+        props.deleteTask(tag)
+        setTimeout(() => {
+            props.listTasks()
+          }, 300)
     }
     const handleEdit = (e) => {
         console.log(e.target)
@@ -100,7 +104,7 @@ const Task = props => {
     
     return (
         <div className='newItem' id='newTask'>
-            <Checkbox value={props.title} onClick={handleCheck} inputProps={{'aria-label': 'primary checkbox'}}/>
+            <Checkbox onClick={(e)=>handleCheck(e)} tag={tag}inputProps={{'aria-label': 'primary checkbox'}}/>
             <p id='taskTitle'>{props.value}</p>
             <div id='taskButtons'>
                 <button onClick={handleEdit} className='edit'><i className="fas fa-pencil-alt fa-2x"></i></button>
@@ -120,7 +124,7 @@ const Tasks = props => {
             </div>
             <div id='taskList'>
                 {props.tasks.map((t, i)=>{
-                    return <Task key={i} value={t.task}/>
+                    return <Task key={i} tag={t._id} value={t.task} {...props}/>
                 })}
             </div>         
         </div>

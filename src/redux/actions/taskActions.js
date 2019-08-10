@@ -47,12 +47,30 @@ export function updateTask (task){
    
 // }
 
-export function deleteTask (task){
-    return {
-        type: 'DELETE_TASK',
-        value: task
+// export function deleteTask (task){
+//     return {
+//         type: 'DELETE_TASK',
+//         value: task
+//     }
+// }
+
+export const deleteTask = _id => async (dispatch, getState) => {
+    const { tasks } = getState()
+    try {
+        await axios.delete(`/api/tasks/${_id}`)
+        dispatch({
+            type: `DELETE_TASK`,
+            payload: {
+                tasks : tasks,
+                delete: _id
+            }
+        })
+    } catch (err) {
+       console.error(err.message)
     }
 }
+
+
 
 export const listTasks = () => async dispatch => {
     try {

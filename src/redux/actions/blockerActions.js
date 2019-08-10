@@ -1,3 +1,5 @@
+import Axios from "axios";
+
 // export function handleErrors(response){
 //     if(! response.ok){
 //         throw Error(response.statusText)
@@ -31,28 +33,19 @@ export function createBlocker(blocker){
 }
 
 export function listBlockers(){
+    // console.log('listblockers, ')
     return dispatch => {
+        // console.log('listblockers after dispatch')
         fetch('/api/blockers')
         .then(res => res.json())
         .then(blockers => {
             dispatch(setBlocker(blockers))
             return blockers;
         })
+        .catch(err => console.error(err.message))
     }
 }
 
-// export function listBlockers(blockers) {
-//     return (dispatch) => {
-//        fetch(`/api/blockers`, {
-//         method: 'GET',
-//         headers: {'Content-Type': 'application/json'},
-//         body: JSON.stringify(blockers)
-//     })
-//     //   .then(handleErrors)
-//       .then(res => res.json())
-//       .then(blockers => dispatch(setBlocker(blockers)))
-//     };
-//   }
 
   export function setBlocker(blockers){
       return {
@@ -68,9 +61,26 @@ export function updateBlocker(blocker){
     }
 }
 
-export function deleteBlocker(blocker){
-    return {
-        type: 'DELETE_BLOCKER',
-        value: blocker
+export const deleteBlocker = _id => async (dispatch, getState) => {
+    const { blockers } = getState()
+    try {
+        await Axios.delete(`/api/blockers/${_id}`)
+        dispatch({
+            type: `DELETE_BLOCKER`,
+            payload: {
+                blockers : blockers,
+                delete: _id
+            }
+        })
+    } catch (err) {
+       console.error(err.message)
     }
 }
+
+// export function deleteBlocker(blocker){
+
+//     return {
+//         type: 'DELETE_BLOCKER',
+//         value: blocker
+//     }
+// }

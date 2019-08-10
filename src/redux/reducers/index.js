@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { stat } from 'fs';
 
 const stats = ( state=[], action ) => {
     switch(action.type){
@@ -64,7 +65,8 @@ const tasks = ( state = [], action ) => {
         case 'DELETE_TASK':
             const index = state.findIndex(each => each.task === action.value)
             index > -1 && state.splice(index, 1)
-            return state
+            return [...state]
+         
         default: 
             return [...state]
     }
@@ -81,9 +83,13 @@ const blockers = ( state = [], action ) => {
         // case 'UPDATE_BLOCKER':
         //     return //need to figure this one out a little more.
         case 'DELETE_BLOCKER':
-            const index = state.findIndex(each => each.title === action.value)
+            // return {
+            //     ...state,
+            //     blockers: action.payload.blockers.filter(b => b._id !== action.payload.delete)
+            // }
+            const index = state.findIndex(each => each.blocker === action.value)
             index > -1 && state.splice(index, 1)
-            return state
+            return [...state]
         default: 
             return [...state]
     }

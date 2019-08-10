@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
       updateBlocker: (blocker) => dispatch(updateBlocker(blocker)),
       listBlockers: () => dispatch(listBlockers()),
       createBlocker: (blocker) => dispatch(createBlocker(blocker)),
-      deleteBlocker: (blocker) => dispatch(deleteBlocker(blocker))
+      deleteBlocker: (_id) => dispatch(deleteBlocker(_id))
     }
   }
 

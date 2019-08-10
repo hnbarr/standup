@@ -57,7 +57,10 @@ class BlockerModal extends Component {
                 console.log(err)
             })
         this.toggleOpen()
-        this.props.listBlockers()
+        // this.props.listBlockers()
+        setTimeout(() => {
+            this.props.listBlockers()
+          }, 200)
         this.handleClose()
     }
 
@@ -85,17 +88,23 @@ class BlockerModal extends Component {
 
 
 const Blocker = props => {
+    // console.log(`THIS ONE!: `, props)
+    const tag = props.tag
     const handleEdit = (e) => {
         console.log(e.target, 'editing')
     }
 
     const handleCheck = (e) => {
-        console.log(e.target.value, 'checkd')
-        this.props.deleteBlocker()
+        e.preventDefault()
+        props.deleteBlocker(tag)
+        setTimeout(() => {
+            props.listBlockers()
+          }, 300)
     }
+
     return (
         <div className='newItem' id='newBlocker'>
-            <Checkbox value={props.title} onClick={handleCheck} inputProps={{'aria-label': 'primary checkbox'}}/>
+            <Checkbox onClick={(e)=>handleCheck(e)} tag={tag} inputProps={{'aria-label': 'primary checkbox'}}/>
             <p id='blockerTitle'> {props.value}</p>
             <div id='blockerButtons'>
                 <button onClick={handleEdit} className='edit'><i className="fas fa-pencil-alt fa-2x"></i></button>
@@ -114,7 +123,7 @@ const Blockers = (props) => {
                 </div>
                 <div id='blockerList'>
                     {props.blockers.map((b, i)=>{
-                        return <Blocker key={i} value={b.blocker}/>
+                        return <Blocker  key={i} tag={b._id} {...props}  value={b.blocker}/>
                     })}
                 </div>     
         </div>
